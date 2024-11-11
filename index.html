@@ -1,32 +1,267 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Agency Name</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <header>
-        <h1>Welcome to Your Agency</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <h2>Your Main Content Here</h2>
-        <p>Welcome to our agency website!</p>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Your Agency Name. All rights reserved.</p>
-    </footer>
-
-    <script src="js/main.js"></script>
-</body>
-</html> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI Development Agency - We build AI-powered software">
+    
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+    
+    <title>Snow Tech Agency | AI Development</title>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.132.2/build/three.module.js"
+        }
+    }
+    </script>
+    <script type="module" src="js/globe.js"></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <nav class="main-nav">
+                <a href="/" class="logo">
+                    Snow Tech
+                </a>
+                <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/services.html">Services</a></li>
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/contact.html" class="cta-button">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="hero-visual">
+            <div class="globe-container">
+                <!-- Globe will render here -->
+            </div>
+            <div class="glow-effect"></div>
+            <div class="particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+            <div class="hero-stat">
+                <h2 class="adaptive-text">
+                    ~<span id="companies-counter">0</span> million companies worldwide leverage AI
+                </h2>
+                <p class="adaptive-text">You're falling behind.</p>
+            </div>
+        </div>
+
+        <section class="hero grain-overlay">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <h1 class="gradient-text">We Build AI Features Fast</h1>
+                    <p class="lead">Your AI product needs building. We ship in weeks, not months.</p>
+                    
+                    <div class="hero-form">
+                        <form class="email-capture-form glass-effect" action="/subscribe" method="POST">
+                            <div class="form-group">
+                                <input type="email" 
+                                       class="glass-input" 
+                                       placeholder="Get Your Timeline & Quote"
+                                       required>
+                                <button type="submit" class="button primary gradient-button">
+                                    Start Now →
+                                </button>
+                            </div>
+                            <p class="form-note">10-minute chat. Zero commitment.</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--
+            <div class="scroll-prompt">
+                <span>Scroll to explore</span>
+                <div class="scroll-arrow"></div>
+            </div>
+            -->
+            <div class="hero-background">
+                <div class="gradient-orb primary"></div>
+                <div class="gradient-orb secondary"></div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="gradient-text">What We Build</h2>
+                    <p class="section-lead">AI Features. Full Products. Fast Delivery.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Add AI Features</h3>
+                        <p>Need GPT or custom AI in your product? We integrate it.</p>
+                        <div class="feature-hover">
+                            <ul class="feature-details">
+                                <li>GPT/LLM Integration</li>
+                                <li>Clean API Design</li>
+                                <li>Custom AI Systems</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔄</div>
+                        <h3>Build Complete Products</h3>
+                        <p>From UI to API, we build the whole thing.</p>
+                        <div class="feature-hover">
+                            <ul class="feature-details">
+                                <li>Sharp Frontend</li>
+                                <li>Solid Backend</li>
+                                <li>Smart Architecture</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🛠️</div>
+                        <h3>Keep It Running</h3>
+                        <p>We maintain. You focus on growth.</p>
+                        <div class="feature-hover">
+                            <ul class="feature-details">
+                                <li>New Features</li>
+                                <li>Speed Optimization</li>
+                                <li>Tech Support</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tech-focus">
+            <div class="container">
+                <h2>Your AI Problems. Gone.</h2>
+                <p class="section-lead">Pick your pain point. We'll fix it.</p>
+                
+                <div class="challenge-categories">
+                    <!-- Integration Category -->
+                    <div class="challenge-category">
+                        <h3 class="category-title">Integration</h3>
+                        <div class="challenge-grid">
+                            <div class="tech-item">
+                                <h4>GPT giving you headaches?</h4>
+                                <p>We handle the complex LLM stuff.</p>
+                            </div>
+                            <div class="tech-item">
+                                <h4>API costs too high?</h4>
+                                <p>We optimize your token usage.</p>
+                            </div>
+                            <div class="tech-item">
+                                <h4>Data pipeline broken?</h4>
+                                <p>We fix your AI data flow.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Performance Category -->
+                    <div class="challenge-category">
+                        <h3 class="category-title">Performance</h3>
+                        <div class="challenge-grid">
+                            <div class="tech-item">
+                                <h4>Features too slow?</h4>
+                                <p>We speed up response times.</p>
+                            </div>
+                            <div class="tech-item">
+                                <h4>Burning money on API calls?</h4>
+                                <p>We cut your AI costs.</p>
+                            </div>
+                            <div class="tech-item">
+                                <h4>Can't handle the load?</h4>
+                                <p>We make it scale.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Development Category -->
+                    <div class="challenge-category">
+                        <h3 class="category-title">Development</h3>
+                        <div class="challenge-grid">
+                            <div class="tech-item">
+                                <h4>Stuck in development hell?</h4>
+                                <p>We ship in weeks.</p>
+                            </div>
+                            <div class="tech-item">
+                                <h4>Code a mess?</h4>
+                                <p>We clean it up.</p>
+                            </div>
+                            <div class="tech-item">
+                                <h4>Features piling up?</h4>
+                                <p>We clear your backlog.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Infrastructure Category -->
+                    <div class="challenge-category">
+                        <h3 class="category-title">Infrastructure</h3>
+                        <div class="challenge-grid">
+                            <div class="tech-item">
+                                <h4>Need better architecture?</h4>
+                                <p>We build it right.</p>
+                            </div>
+                            <div class="tech-item">
+                                <h4>Security concerns?</h4>
+                                <p>We lock it down.</p>
+                            </div>
+                            <div class="tech-item">
+                                <h4>Can't track performance?</h4>
+                                <p>We make it visible.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Resource Category -->
+                    <div class="challenge-category">
+                        <h3 class="category-title">Resources</h3>
+                        <div class="challenge-grid">
+                            <div class="tech-item">
+                                <h4>Missing AI expertise?</h4>
+                                <p>We fill the gaps.</p>
+                            </div>
+                            <div class="tech-item">
+                                <h4>Need better docs?</h4>
+                                <p>We make it clear.</p>
+                            </div>
+                            <div class="tech-item">
+                                <h4>Want reliable support?</h4>
+                                <p>We're here to stay.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Ship?</h2>
+                <p>Get Timeline & Price → 10-Min Chat</p>
+                <a href="/contact.html" class="button primary" style="border: none;">Start Now →</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p style="position: relative; z-index: 9999;">&copy; 2024 Snow Tech Agency. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Snow Tech Style Guide">
+    
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="css/design-system.css">
+    
+    <title>Style Guide | Snow Tech Agency</title>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <nav class="main-nav">
+                <a href="/" class="logo">Snow Tech</a>
+                <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/services.html">Services</a></li>
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/contact.html" class="cta-button">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="styleguide-hero grain-overlay">
+            <div class="container">
+                <h1 class="gradient-text">Design System</h1>
+                <p class="lead">A comprehensive guide to Snow Tech's visual language</p>
+            </div>
+            <div class="scroll-indicator">
+                <span>Scroll to explore</span>
+                <div class="scroll-arrow"></div>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Colors Section -->
+            <section class="style-section">
+                <h2 class="section-title">Color System</h2>
+                
+                <h3 class="subsection-title">Brand Colors</h3>
+                <div class="color-grid">
+                    <div class="color-item primary-gradient">
+                        <span>Primary Gradient</span>
+                        <code>#6E3AFF → #00F0FF</code>
+                    </div>
+                    <div class="color-item" style="background: var(--primary)">
+                        <span>Primary</span>
+                        <code>#6E3AFF</code>
+                    </div>
+                    <div class="color-item" style="background: var(--accent)">
+                        <span>Accent</span>
+                        <code>#00F0FF</code>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">Neutral Colors</h3>
+                <div class="color-grid">
+                    <div class="color-item" style="background: var(--dark)">
+                        <span>Dark</span>
+                        <code>#0A1428</code>
+                    </div>
+                    <div class="color-item" style="background: var(--dark-card)">
+                        <span>Dark Card</span>
+                        <code>#111A2C</code>
+                    </div>
+                    <div class="color-item" style="background: var(--gray-600)">
+                        <span>Gray 600</span>
+                        <code>#475569</code>
+                    </div>
+                    <div class="color-item" style="background: var(--gray-400)">
+                        <span>Gray 400</span>
+                        <code>#94A3B8</code>
+                    </div>
+                    <div class="color-item" style="background: var(--gray-200); color: var(--dark)">
+                        <span>Gray 200</span>
+                        <code>#E2E8F0</code>
+                    </div>
+                    <div class="color-item" style="background: var(--light); color: var(--dark)">
+                        <span>Light</span>
+                        <code>#F8FAFC</code>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">Feedback Colors</h3>
+                <div class="color-grid">
+                    <div class="color-item" style="background: var(--success)">
+                        <span>Success</span>
+                        <code>#10B981</code>
+                    </div>
+                    <div class="color-item" style="background: var(--warning)">
+                        <span>Warning</span>
+                        <code>#F59E0B</code>
+                    </div>
+                    <div class="color-item" style="background: var(--danger)">
+                        <span>Danger</span>
+                        <code>#EF4444</code>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Typography -->
+            <section class="style-section">
+                <h2 class="section-title">Typography</h2>
+                <div class="style-grid">
+                    <div class="style-item">
+                        <h1 class="gradient-text">Heading 1</h1>
+                        <h2>Heading 2</h2>
+                        <h3>Heading 3</h3>
+                        <h4>Heading 4</h4>
+                        <div class="type-details">
+                            <code>Plus Jakarta Sans</code>
+                            <span>Font weights: 400, 500, 600, 700, 800</span>
+                        </div>
+                    </div>
+                    <div class="style-item">
+                        <p class="lead">Lead paragraph text for important introductions and highlights.</p>
+                        <p>Regular paragraph text for general content and descriptions.</p>
+                        <p class="small">Small text for captions and supporting information.</p>
+                        <p><code class="inline-code">Monospace text for technical terms</code></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Buttons -->
+            <section class="style-section">
+                <h2 class="section-title">Buttons</h2>
+                <div class="button-grid">
+                    <div class="style-item">
+                        <h3>Primary Buttons</h3>
+                        <button class="button primary gradient-button">Gradient Button</button>
+                        <button class="button primary">Primary Button</button>
+                        <button class="button primary" disabled>Disabled Button</button>
+                    </div>
+                    <div class="style-item">
+                        <h3>Secondary Buttons</h3>
+                        <button class="button secondary glow-effect">With Glow</button>
+                        <button class="button secondary outline">Outline</button>
+                        <button class="button secondary ghost">Ghost</button>
+                    </div>
+                    <div class="style-item">
+                        <h3>Button States</h3>
+                        <button class="button primary loading">
+                            <span class="button-text">Loading</span>
+                            <span class="button-loader"></span>
+                        </button>
+                        <button class="button primary with-icon">
+                            <span>With Icon</span>
+                            <svg class="button-icon" viewBox="0 0 24 24">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cards -->
+            <section class="style-section">
+                <h2 class="section-title">Cards</h2>
+                <div class="card-grid">
+                    <div class="glass-card hover-float">
+                        <div class="card-content">
+                            <h3>Glass Card</h3>
+                            <p>With floating animation</p>
+                        </div>
+                    </div>
+                    <div class="gradient-border-card">
+                        <div class="card-content">
+                            <h3>Gradient Border</h3>
+                            <p>With hover effect</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon gradient-text">⚡</div>
+                        <h3>Feature Card</h3>
+                        <p>With gradient icon</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Forms -->
+            <section class="style-section">
+                <h2 class="section-title">Form Elements</h2>
+                <div class="form-grid">
+                    <div class="style-item">
+                        <div class="form-group">
+                            <label class="gradient-label">Gradient Label</label>
+                            <input type="text" class="glass-input" placeholder="Glass effect input">
+                        </div>
+                        <div class="form-group">
+                            <label>Select Input</label>
+                            <select class="styled-select">
+                                <option>Option 1</option>
+                                <option>Option 2</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="style-item">
+                        <div class="form-group error">
+                            <label>Error State</label>
+                            <input type="text" value="Invalid input">
+                            <span class="error-message">Error message with animation</span>
+                        </div>
+                        <div class="form-group success">
+                            <label>Success State</label>
+                            <input type="text" value="Valid input">
+                            <span class="success-message">Success message</span>
+                        </div>
+                    </div>
+                    <div class="style-item">
+                        <h3>Success Message Demo</h3>
+                        <button class="button primary" onclick="showSuccessDemo()">Show Success Message</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2024 Snow Tech Agency. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="success-message">
+        <div class="success-content">
+            <div class="success-icon">✓</div>
+            <h3>Success!</h3>
+            <p>Your message has been sent successfully.</p>
+            <button class="button primary" onclick="closeSuccessMessage()">Close</button>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 
