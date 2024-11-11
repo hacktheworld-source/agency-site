@@ -3,14 +3,12 @@ import * as THREE from 'https://cdn.skypack.dev/three@0.132.2';
 class Globe {
     constructor(container) {
         this.container = container;
-        this.rotationY = 0;
-        this.rotationX = 0.5;
-        this.targetRotation = 0;
-        this.currentRotation = 0;
+        this.rotationSpeed = 0.0005;
         this.isRunning = true;
+        this.lastFrame = 0;
+        this.fps = 60;
+        this.fpsInterval = 1000 / this.fps;
         
-        // Bind methods to prevent memory leaks
-        this.onScroll = this.onScroll.bind(this);
         this.onResize = this.onResize.bind(this);
         this.animate = this.animate.bind(this);
         
@@ -23,8 +21,7 @@ class Globe {
         this.camera = new THREE.PerspectiveCamera(75, this.container.clientWidth / this.container.clientHeight, 0.1, 1000);
         this.renderer = new THREE.WebGLRenderer({ 
             alpha: true, 
-            antialias: true,
-            powerPreference: "high-performance"
+            antialias: true
         });
         
         // Configure renderer
@@ -55,26 +52,14 @@ class Globe {
         
         // Position camera
         this.camera.position.z = 8;
-        this.globe.rotation.x = this.rotationX;
+        this.globe.rotation.x = 0.5;
         
-        // Add event listeners
-        window.addEventListener('scroll', this.onScroll, { passive: true });
+        // Add event listener for resize only
         window.addEventListener('resize', this.onResize);
         
-        // Start animation
-        this.animate(0);
-        
-        // Periodic state reset to prevent error accumulation
-        setInterval(() => {
-            if (Math.abs(this.currentRotation - this.targetRotation) < 0.001) {
-                this.currentRotation = this.targetRotation;
-            }
-        }, 5000);
-    }
-    
-    onScroll() {
-        const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-        this.targetRotation = scrollPercent * Math.PI;
+        // Start animation with timestamp
+        this.lastFrame = performance.now();
+        this.animate();
     }
     
     onResize() {
@@ -85,32 +70,29 @@ class Globe {
         this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
     }
     
-    animate(timestamp) {
+    animate(currentTime) {
         if (!this.isRunning) return;
+
+        // Throttle to target FPS
+        const elapsed = currentTime - this.lastFrame;
         
-        // Smooth rotation interpolation
-        this.currentRotation += (this.targetRotation - this.currentRotation) * 0.1;
-        
-        // Constant rotation
-        this.rotationY += 0.001;
-        
-        // Apply rotations
-        if (this.globe) {
-            this.globe.rotation.y = this.currentRotation + this.rotationY;
+        if (elapsed > this.fpsInterval) {
+            this.lastFrame = currentTime - (elapsed % this.fpsInterval);
+            
+            if (this.globe) {
+                this.globe.rotation.y += this.rotationSpeed;
+                this.renderer.render(this.scene, this.camera);
+            }
         }
         
-        this.renderer.render(this.scene, this.camera);
         requestAnimationFrame(this.animate);
     }
 
     destroy() {
         this.isRunning = false;
         
-        // Remove event listeners
-        window.removeEventListener('scroll', this.onScroll);
         window.removeEventListener('resize', this.onResize);
         
-        // Cleanup Three.js resources
         if (this.globe) {
             this.scene.remove(this.globe);
             this.globe.geometry.dispose();
@@ -124,7 +106,6 @@ class Globe {
             this.renderer.dispose();
         }
         
-        // Clear references
         this.globe = null;
         this.scene = null;
         this.camera = null;

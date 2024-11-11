@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="AI Development Agency - We build AI-powered software">
     
+    <!-- Add these before other resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="/assets/globe-texture.png" as="image">
+    <link rel="preload" href="/assets/noise.svg" as="image">
+    
+    <!-- Optimize font loading -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    
+    <!-- Add browser hints -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <link rel="modulepreload" href="https://unpkg.com/three@0.132.2/build/three.module.js">
+    
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/design-system.css">
@@ -15,7 +31,8 @@
     <script type="importmap">
     {
         "imports": {
-            "three": "https://unpkg.com/three@0.132.2/build/three.module.js"
+            "three": "https://unpkg.com/three@0.132.2/build/three.module.js",
+            "three/": "https://unpkg.com/three@0.132.2/"
         }
     }
     </script>
@@ -69,12 +86,15 @@
                     <p class="lead">Your AI product needs building. We ship in weeks, not months.</p>
                     
                     <div class="hero-form">
-                        <form class="email-capture-form glass-effect" action="/subscribe" method="POST">
+                        <form class="email-capture-form glass-effect" action="submit-hero.php" method="POST" id="heroForm">
                             <div class="form-group">
-                                <input type="email" 
-                                       class="glass-input" 
-                                       placeholder="Get Your Timeline & Quote"
-                                       required>
+                                <input 
+                                    type="email" 
+                                    name="email" 
+                                    class="glass-input" 
+                                    placeholder="Enter your e-mail for timeline & quote"
+                                    required
+                                >
                                 <button type="submit" class="button primary gradient-button">
                                     Start Now →
                                 </button>
@@ -263,5 +283,15 @@
     </footer>
 
     <script src="js/main.js"></script>
+
+    <!-- Success Message Modal -->
+    <div class="success-message" id="successMessage">
+        <div class="success-content">
+            <div class="success-icon">✓</div>
+            <h3>Message Sent!</h3>
+            <p>We'll get back to you within 1 hour.</p>
+            <button onclick="closeSuccessMessage()" class="button primary">Close</button>
+        </div>
+    </div>
 </body>
 </html> 

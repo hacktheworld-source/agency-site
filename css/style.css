@@ -279,7 +279,11 @@ h1 {
 
 
 
-    transition: all 0.3s ease;
+    transform: translateZ(0);
+
+
+
+    will-change: background;
 
 
 
@@ -1733,7 +1737,8 @@ h1 {
 
 .about-hero .lead {
     color: var(--gray-300);
-    max-width: 600px;
+    max-width: 1000px;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -2464,8 +2469,9 @@ h1 {
 
 /* Add scrolled state styles */
 .site-header.scrolled {
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .site-header.scrolled .main-nav {
