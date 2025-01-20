@@ -2711,3 +2711,45 @@ html {
                 0 0 45px var(--primary-dark);
 }
 
+/* CTA Button Glow Effect */
+.cta-section .button.primary {
+    position: relative;
+    background: var(--primary);
+    color: var(--light);
+    border: none;
+    animation: glow 2s ease-in-out infinite;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px var(--primary),
+                    0 0 20px var(--primary),
+                    0 0 30px var(--primary-dark);
+        transform: translateY(0);
+    }
+    50% {
+        box-shadow: 0 0 20px var(--primary),
+                    0 0 40px var(--primary),
+                    0 0 60px var(--primary-dark);
+        transform: translateY(-2px);
+    }
+    100% {
+        box-shadow: 0 0 10px var(--primary),
+                    0 0 20px var(--primary),
+                    0 0 30px var(--primary-dark);
+        transform: translateY(0);
+    }
+}
+
+.cta-section .button.primary:hover {
+    transform: translateY(-2px);
+    animation: none;
+    background: var(--primary-dark);
+    box-shadow: 0 0 30px var(--primary),
+                0 0 60px var(--primary),
+                0 0 90px var(--primary-dark);
+}
+
