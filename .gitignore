@@ -1,4 +1,44 @@
+# System files
 .DS_Store
-node_modules/
+Thumbs.db
+
+# Editor/IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs and databases
 *.log
-.env 
+debug.log
+*.sql
+*.sqlite
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Dependencies (if you add any in the future)
+node_modules/
+vendor/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*~
+
+# Compiled files
+*.map
+*.min.js
+*.min.css
+
+# Cache
+.cache/
+.sass-cache/
+
+# Bluehost specific
+.well-known/
+.htaccess.phpupgrader.*
+error_log 
