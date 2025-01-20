@@ -2714,36 +2714,59 @@ html {
 /* CTA Section Button Styles */
 .cta-section .button.primary {
     position: relative;
-    background: var(--primary);
+    background: #00E5FF; /* Bright cyan */
     color: var(--light);
     border: none;
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
+    padding: 1.2rem 2.4rem;
+    font-size: 1.25rem;
     font-weight: 600;
     letter-spacing: 0.5px;
+    border-radius: 12px;
     transition: all 0.3s ease;
     animation: glow 2s ease-in-out infinite;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 @keyframes glow {
     0%, 100% {
-        box-shadow: 0 0 5px rgba(0, 102, 255, 0.5),
-                    0 0 15px rgba(0, 102, 255, 0.3),
-                    0 0 25px rgba(0, 102, 255, 0.2);
+        box-shadow: 0 0 10px rgba(0, 229, 255, 0.5),
+                    0 0 30px rgba(0, 229, 255, 0.3),
+                    0 0 50px rgba(0, 229, 255, 0.2);
+        transform: translateY(0);
     }
     50% {
-        box-shadow: 0 0 10px rgba(0, 102, 255, 0.8),
-                    0 0 25px rgba(0, 102, 255, 0.5),
-                    0 0 35px rgba(0, 102, 255, 0.3);
+        box-shadow: 0 0 20px rgba(0, 229, 255, 0.8),
+                    0 0 40px rgba(0, 229, 255, 0.5),
+                    0 0 60px rgba(0, 229, 255, 0.3);
+        transform: translateY(-2px);
     }
 }
 
 .cta-section .button.primary:hover {
+    background: #33EEFF; /* Slightly lighter cyan */
     transform: translateY(-2px);
-    background: var(--primary-dark);
     animation: none;
-    box-shadow: 0 0 15px rgba(0, 102, 255, 0.8),
-                0 0 30px rgba(0, 102, 255, 0.5),
-                0 0 45px rgba(0, 102, 255, 0.3);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.8),
+                0 0 40px rgba(0, 229, 255, 0.5),
+                0 0 60px rgba(0, 229, 255, 0.3);
+}
+
+/* Add styles for the CTA section to match the screenshot */
+.cta-section {
+    background: var(--primary);
+    padding: 6rem 0;
+    text-align: center;
+}
+
+.cta-section h2 {
+    color: var(--light);
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.cta-section p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
 }
 
