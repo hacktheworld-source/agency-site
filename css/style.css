@@ -2677,3 +2677,37 @@ html {
     scroll-behavior: smooth;
 }
 
+.cta-section .button.secondary {
+    position: relative;
+    background: var(--primary);
+    color: var(--light);
+    border: none;
+    animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px var(--primary),
+                    0 0 10px var(--primary),
+                    0 0 15px var(--primary-dark);
+    }
+    50% {
+        box-shadow: 0 0 10px var(--primary),
+                    0 0 20px var(--primary),
+                    0 0 30px var(--primary-dark);
+    }
+    100% {
+        box-shadow: 0 0 5px var(--primary),
+                    0 0 10px var(--primary),
+                    0 0 15px var(--primary-dark);
+    }
+}
+
+.cta-section .button.secondary:hover {
+    transform: translateY(-2px);
+    animation: none;
+    box-shadow: 0 0 15px var(--primary),
+                0 0 30px var(--primary),
+                0 0 45px var(--primary-dark);
+}
+
