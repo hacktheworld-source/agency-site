@@ -808,49 +808,63 @@ body.menu-open.menu-active::before {
 /* CTA Section */
 
 .cta-section {
+    background: var(--primary);
     padding: 6rem 0;
     text-align: center;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-    color: var(--light);
 }
 
 .cta-section h2 {
     color: var(--light);
+    font-size: 3.5rem;
     margin-bottom: 1rem;
 }
 
 .cta-section p {
     color: rgba(255, 255, 255, 0.9);
+    font-size: 1.25rem;
     margin-bottom: 2rem;
 }
 
-.cta-section .button.primary,
-.cta-section a.button.primary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--light);
-    color: var(--primary);
-    padding: 0.875rem 1.75rem;
-    border-radius: 8px;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-    border: none;
-    outline: none;
-    text-decoration: none;
-    font-size: 1.1rem;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: none;
+.cta-section .button.primary {
     position: relative;
-    overflow: hidden;
+    background: #FFFFFF;
+    color: var(--primary);
+    border: none;
+    padding: 1.2rem 2.4rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 12px;
+    transition: all 0.5s ease, box-shadow 0.5s ease;  /* Add box-shadow to transition */
+    animation: ctaGlow 2s ease-in-out infinite;
+    isolation: isolate;
+    overflow: visible;
+    content: none;
 }
 
-.cta-section .button.primary:hover,
-.cta-section a.button.primary:hover {
-    background: var(--dark);
-    color: var(--light);
+.cta-section .button.primary::before,
+.cta-section .button.primary::after {
+    display: none;
+}
+
+@keyframes ctaGlow {
+    0%, 100% {
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.6),
+                    0 0 30px rgba(255, 255, 255, 0.4);
+        transform: translateY(0);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(255, 255, 255, 0.8),
+                    0 0 40px rgba(255, 255, 255, 0.5);
+        transform: translateY(-2px);
+    }
+}
+
+.cta-section .button.primary:hover {
+    background: #FFFFFF;
     transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 35px rgba(255, 255, 255, 0.9),
+                0 0 50px rgba(255, 255, 255, 0.7);
 }
 
 /* Dark Mode Adjustments */
@@ -868,6 +882,10 @@ body.menu-open.menu-active::before {
 [data-theme="dark"] .button.secondary:hover {
     background: var(--primary);
     color: var(--light);
+}
+
+[data-theme="dark"] .tech-item {
+    background: rgba(255, 255, 255, 0.05);
 }
 
 /* Mobile Responsiveness */
@@ -2675,98 +2693,5 @@ body.menu-open.menu-active::before {
 
 html {
     scroll-behavior: smooth;
-}
-
-.cta-section .button.secondary {
-    position: relative;
-    background: var(--primary);
-    color: var(--light);
-    border: none;
-    animation: glow 2s ease-in-out infinite;
-}
-
-@keyframes glow {
-    0% {
-        box-shadow: 0 0 5px var(--primary),
-                    0 0 10px var(--primary),
-                    0 0 15px var(--primary-dark);
-    }
-    50% {
-        box-shadow: 0 0 10px var(--primary),
-                    0 0 20px var(--primary),
-                    0 0 30px var(--primary-dark);
-    }
-    100% {
-        box-shadow: 0 0 5px var(--primary),
-                    0 0 10px var(--primary),
-                    0 0 15px var(--primary-dark);
-    }
-}
-
-.cta-section .button.secondary:hover {
-    transform: translateY(-2px);
-    animation: none;
-    box-shadow: 0 0 15px var(--primary),
-                0 0 30px var(--primary),
-                0 0 45px var(--primary-dark);
-}
-
-/* CTA Section Button Styles */
-.cta-section .button.primary {
-    position: relative;
-    background: #00E5FF; /* Bright cyan */
-    color: var(--light);
-    border: none;
-    padding: 1.2rem 2.4rem;
-    font-size: 1.25rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    border-radius: 12px;
-    transition: all 0.3s ease;
-    animation: glow 2s ease-in-out infinite;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-@keyframes glow {
-    0%, 100% {
-        box-shadow: 0 0 10px rgba(0, 229, 255, 0.5),
-                    0 0 30px rgba(0, 229, 255, 0.3),
-                    0 0 50px rgba(0, 229, 255, 0.2);
-        transform: translateY(0);
-    }
-    50% {
-        box-shadow: 0 0 20px rgba(0, 229, 255, 0.8),
-                    0 0 40px rgba(0, 229, 255, 0.5),
-                    0 0 60px rgba(0, 229, 255, 0.3);
-        transform: translateY(-2px);
-    }
-}
-
-.cta-section .button.primary:hover {
-    background: #33EEFF; /* Slightly lighter cyan */
-    transform: translateY(-2px);
-    animation: none;
-    box-shadow: 0 0 20px rgba(0, 229, 255, 0.8),
-                0 0 40px rgba(0, 229, 255, 0.5),
-                0 0 60px rgba(0, 229, 255, 0.3);
-}
-
-/* Add styles for the CTA section to match the screenshot */
-.cta-section {
-    background: var(--primary);
-    padding: 6rem 0;
-    text-align: center;
-}
-
-.cta-section h2 {
-    color: var(--light);
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-}
-
-.cta-section p {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
 }
 
