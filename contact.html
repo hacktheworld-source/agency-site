@@ -1,13 +1,8 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="description" content="Contact Snow Tech Agency for your AI development needs">
 
     <!-- Add these before other resources -->
@@ -27,97 +22,52 @@
     <link rel="modulepreload" href="https://unpkg.com/three@0.132.2/build/three.module.js">
 
     <link rel="stylesheet" href="css/normalize.css">
-
     <link rel="stylesheet" href="css/style.css">
-
     <link rel="stylesheet" href="css/design-system.css">
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
-
     
-
     <title>Let's Talk | Snow Tech Agency</title>
-
 </head>
 
 <body>
-
     <header class="site-header">
-
         <div class="container">
-
             <nav class="main-nav">
-
                 <a href="/" class="logo">Snow Tech</a>
-
                 <button class="mobile-menu-toggle" aria-label="Toggle Menu">
-
                     <span></span>
-
                     <span></span>
-
                     <span></span>
-
                 </button>
-
                 <ul class="nav-links">
-
                     <li><a href="/">Home</a></li>
-
                     <li><a href="/services.html">Services</a></li>
-
                     <li><a href="/about.html">About</a></li>
-
                     <li><a href="/contact.html" class="active cta-button">Contact Us</a></li>
-
                 </ul>
-
             </nav>
-
         </div>
-
     </header>
 
-
-
     <main>
-
         <section class="contact-hero grain-overlay">
-
             <div class="container">
-
                 <h1 class="gradient-text">Let's Build Something</h1>
-
                 <p class="lead">10-minute chat. Clear next steps. No commitment.</p>
-
             </div>
-
             <div class="hero-background">
-
                 <div class="gradient-orb primary"></div>
-
                 <div class="gradient-orb secondary"></div>
-
             </div>
-
         </section>
 
-
-
         <section class="contact-section">
-
             <div class="container">
-
                 <div class="contact-grid">
-
                     <div class="contact-form-wrapper">
-
-                        <form class="contact-form" action="submit-contact.php" method="POST" id="contactForm">
-
+                        <form class="contact-form" action="/submit-contact.php" method="POST" id="contactForm">
                             <div class="form-group">
-
                                 <label for="name">Your Name</label>
-
                                 <input 
                                     type="text" 
                                     id="name" 
@@ -125,15 +75,10 @@
                                     required
                                     placeholder="John Smith"
                                 >
-
                             </div>
-
                             
-
                             <div class="form-group">
-
                                 <label for="email">Email</label>
-
                                 <input 
                                     type="email" 
                                     id="email" 
@@ -141,63 +86,38 @@
                                     required
                                     placeholder="john@company.com"
                                 >
-
                             </div>
-
                             
-
                             <div class="form-group">
-
                                 <label for="project-type">What Do You Need?</label>
-
                                 <select 
                                     id="project-type" 
                                     name="project-type" 
                                     required
                                 >
-
                                     <option value="">Select a service</option>
-
                                     <option value="mvp">Build New AI Product</option>
-
                                     <option value="ai-integration">Add AI Features</option>
-
                                     <option value="maintenance">Ongoing Development</option>
-
                                 </select>
-
                             </div>
-
                             
-
                             <div class="form-group">
-
                                 <label for="timeline">When Do You Need It?</label>
-
                                 <select 
                                     id="timeline" 
                                     name="timeline" 
                                     required
                                 >
-
                                     <option value="">Select timeline</option>
-
                                     <option value="urgent">ASAP (2-4 weeks)</option>
-
                                     <option value="normal">Soon (6-12 weeks)</option>
-
                                     <option value="flexible">Flexible</option>
-
                                 </select>
-
                             </div>
-
                             
-
                             <div class="form-group">
-
                                 <label for="message">Project Details</label>
-
                                 <textarea 
                                     id="message" 
                                     name="message" 
@@ -205,133 +125,68 @@
                                     required
                                     placeholder="Tell us what you're building..."
                                 ></textarea>
-
                             </div>
-
                             
-
                             <button type="submit" class="button primary">
-
                                 <span class="button-text">Schedule 10-Min Chat →</span>
-
                                 <span class="button-loader"></span>
-
                             </button>
-
                         </form>
-
                     </div>
-
                     
-
                     <div class="contact-info">
-
                         <div class="info-card">
-
                             <h3>What Happens Next?</h3>
-
                             <ul class="timeline-list">
-
                                 <li>
-
                                     <span class="time">1h</span>
-
                                     <p>We review your project details</p>
-
                                 </li>
-
                                 <li>
-
                                     <span class="time">24h</span>
-
                                     <p>Schedule 10-min discovery call</p>
-
                                 </li>
-
                                 <li>
-
                                     <span class="time">48h</span>
-
                                     <p>Get timeline and pricing</p>
-
                                 </li>
-
                                 <li>
-
                                     <span class="time">You decide</span>
-
                                     <p>Start building when you're ready</p>
-
                                 </li>
-
                             </ul>
-
                         </div>
-
                         <div class="info-card guarantee">
-
                             <h3>Our Guarantee</h3>
-
                             <ul class="guarantee-list">
-
                                 <li>No pressure sales tactics</li>
-
                                 <li>Clear, upfront pricing</li>
-
                                 <li>Detailed project timeline</li>
-
                                 <li>Weekly progress updates</li>
-
                             </ul>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </section>
-
     </main>
 
-
-
     <footer class="site-footer">
-
         <div class="container">
-
             <p>&copy; 2024 Snow Tech Agency. All rights reserved.</p>
-
         </div>
-
     </footer>
 
-
-
     <!-- Success Message Modal -->
-
     <div class="success-message" id="successMessage">
-
         <div class="success-content">
-
             <div class="success-icon">✓</div>
-
             <h3>Message Sent!</h3>
-
             <p>We'll get back to you within 1 hour.</p>
-
             <button onclick="closeSuccessMessage()" class="button primary">Close</button>
-
         </div>
-
     </div>
 
-
-
     <script src="js/main.js"></script>
-
 </body>
-
 </html>

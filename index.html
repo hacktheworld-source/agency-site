@@ -65,37 +65,30 @@
             <div class="globe-container">
                 <!-- Globe will render here -->
             </div>
-            <div class="glow-effect"></div>
-            <div class="particles">
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-            </div>
             <div class="hero-stat">
                 <h2 class="adaptive-text">
                     ~<span id="companies-counter">0</span> million companies worldwide leverage AI
                 </h2>
-                <p class="adaptive-text">You're falling behind.</p>
+                <p class="adaptive-text" style="color: #fff; font-weight: bold;">Are you falling behind?</p>
             </div>
         </div>
 
-        <section class="hero grain-overlay">
+        <section class="hero">
             <div class="container hero-container">
                 <div class="hero-content">
                     <h1 class="gradient-text">We Build AI Features Fast</h1>
                     <p class="lead">Your AI product needs building. We ship in weeks, not months.</p>
                     
                     <div class="hero-form">
-                        <form class="email-capture-form glass-effect" action="submit-hero.php" method="POST" id="heroForm">
+                        <form class="email-capture-form" id="heroForm" action="javascript:void(0);">
                             <div class="form-group">
                                 <input 
                                     type="email" 
                                     name="email" 
-                                    class="glass-input" 
                                     placeholder="Enter your e-mail for timeline & quote"
                                     required
                                 >
-                                <button type="submit" class="button primary gradient-button">
+                                <button type="submit" class="button primary">
                                     Start Now →
                                 </button>
                             </div>
@@ -103,16 +96,6 @@
                         </form>
                     </div>
                 </div>
-            </div>
-            <!--
-            <div class="scroll-prompt">
-                <span>Scroll to explore</span>
-                <div class="scroll-arrow"></div>
-            </div>
-            -->
-            <div class="hero-background">
-                <div class="gradient-orb primary"></div>
-                <div class="gradient-orb secondary"></div>
             </div>
         </section>
 
@@ -127,37 +110,31 @@
                         <div class="feature-icon">⚡</div>
                         <h3>Add AI Features</h3>
                         <p>Need GPT or custom AI in your product? We integrate it.</p>
-                        <div class="feature-hover">
-                            <ul class="feature-details">
-                                <li>GPT/LLM Integration</li>
-                                <li>Clean API Design</li>
-                                <li>Custom AI Systems</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🔄</div>
-                        <h3>Build Complete Products</h3>
-                        <p>From UI to API, we build the whole thing.</p>
-                        <div class="feature-hover">
-                            <ul class="feature-details">
-                                <li>Sharp Frontend</li>
-                                <li>Solid Backend</li>
-                                <li>Smart Architecture</li>
-                            </ul>
-                        </div>
+                        <ul class="feature-details">
+                            <li>GPT/LLM Integration</li>
+                            <li>Clean API Design</li>
+                            <li>Custom AI Systems</li>
+                        </ul>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">🛠️</div>
+                        <h3>Build Complete Products</h3>
+                        <p>From UI to API, we build the whole thing.</p>
+                        <ul class="feature-details">
+                            <li>Sharp Frontend</li>
+                            <li>Solid Backend</li>
+                            <li>Smart Architecture</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚙️</div>
                         <h3>Keep It Running</h3>
                         <p>We maintain. You focus on growth.</p>
-                        <div class="feature-hover">
-                            <ul class="feature-details">
-                                <li>New Features</li>
-                                <li>Speed Optimization</li>
-                                <li>Tech Support</li>
-                            </ul>
-                        </div>
+                        <ul class="feature-details">
+                            <li>New Features</li>
+                            <li>Speed Optimization</li>
+                            <li>Tech Support</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -271,27 +248,17 @@
             <div class="container">
                 <h2>Ready to Ship?</h2>
                 <p>Get Timeline & Price → 10-Min Chat</p>
-                <a href="/contact.html" class="button primary" style="border: none;">Start Now →</a>
+                <a href="/contact.html" class="button secondary" style="border: none;">Start Now</a>
             </div>
         </section>
     </main>
 
     <footer class="site-footer">
         <div class="container">
-            <p style="position: relative; z-index: 9999;">&copy; 2024 Snow Tech Agency. All rights reserved.</p>
+            <p>&copy; 2024 Snow Tech Agency. All rights reserved.</p>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
-
-    <!-- Success Message Modal -->
-    <div class="success-message" id="successMessage">
-        <div class="success-content">
-            <div class="success-icon">✓</div>
-            <h3>Message Sent!</h3>
-            <p>We'll get back to you within 1 hour.</p>
-            <button onclick="closeSuccessMessage()" class="button primary">Close</button>
-        </div>
-    </div>
 </body>
 </html> 
