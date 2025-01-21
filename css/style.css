@@ -187,12 +187,29 @@ h1 {
     margin-top: 3rem;
 }
 
+/* Update service card styles */
 .service-card {
-    background: white;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     padding: 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(0, 102, 255, 0.1);
     border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
+}
+
+.service-features {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    /* Add flex-grow to push button to bottom */
+    flex-grow: 1;
+}
+
+/* Add this to ensure consistent spacing above button */
+.service-card .button {
+    margin-top: auto;
 }
 
 .service-card:hover {
