@@ -22,6 +22,9 @@ ErrorDocument 404 /404.html
     Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
     Header set Server-Timing "cache;desc=Cache Status"
     Header set Timing-Allow-Origin "*"
+    # Allow CORS for same-origin fetch requests
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET"
 </IfModule>
 
 # Enable GZIP compression

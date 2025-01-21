@@ -1,7 +1,9 @@
 import * as THREE from 'https://cdn.skypack.dev/three@0.132.2';
 
-class Globe {
+export default class Globe {
     constructor(container) {
+        if (!container) return;
+        
         this.container = container;
         this.isRunning = true;
         this.rotationSpeed = 0.0002;
@@ -9,39 +11,35 @@ class Globe {
         this.lastScrollY = window.scrollY;
         this.animationFrame = null;
         
-        // Create a separate canvas layer for better performance
-        this.offscreenCanvas = document.createElement('canvas');
-        this.offscreenContext = this.offscreenCanvas.getContext('webgl', {
-            alpha: true,
-            antialias: true,
-            powerPreference: 'high-performance',
-            desynchronized: true
-        });
+        // Store the instance globally
+        window.globeInstance = this;
         
         this.onResize = this.onResize.bind(this);
         this.onScroll = this.onScroll.bind(this);
         this.animate = this.animate.bind(this);
+        
+        // Clear container
+        while (container.firstChild) {
+            container.removeChild(container.firstChild);
+        }
         
         this.init();
     }
 
     async init() {
         try {
+            console.log('Initializing globe...');
             this.scene = new THREE.Scene();
             
-            // Update camera setup
             const aspectRatio = this.container.clientWidth / this.container.clientHeight;
             this.camera = new THREE.PerspectiveCamera(60, aspectRatio, 0.1, 1000);
             
-            // Set initial camera position using same formula as resize
             const width = this.container.clientWidth;
             const height = this.container.clientHeight;
             const containerSize = Math.min(width, height);
             this.camera.position.z = Math.max(13, 9 * (1000 / containerSize));
             
             this.renderer = new THREE.WebGLRenderer({ 
-                canvas: this.offscreenCanvas,
-                context: this.offscreenContext,
                 alpha: true, 
                 antialias: true,
                 powerPreference: 'high-performance'
@@ -49,7 +47,7 @@ class Globe {
             
             this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
             this.renderer.setPixelRatio(window.devicePixelRatio);
-            this.container.appendChild(this.offscreenCanvas);
+            this.container.appendChild(this.renderer.domElement);
 
             const textureLoader = new THREE.TextureLoader();
             const globeTexture = await new Promise((resolve) => {
@@ -60,7 +58,6 @@ class Globe {
             globeTexture.magFilter = THREE.LinearFilter;
             globeTexture.generateMipmaps = true;
             
-            // Fixed globe size
             const geometry = new THREE.SphereGeometry(6, 64, 64);
             const material = new THREE.MeshBasicMaterial({
                 map: globeTexture,
@@ -133,6 +130,7 @@ class Globe {
 
     destroy() {
         this.isRunning = false;
+        
         if (this.animationFrame) {
             cancelAnimationFrame(this.animationFrame);
             this.animationFrame = null;
@@ -140,6 +138,11 @@ class Globe {
         
         window.removeEventListener('resize', this.onResize);
         window.removeEventListener('scroll', this.onScroll);
+        
+        // Immediately hide the container
+        if (this.container) {
+            this.container.style.opacity = '0';
+        }
         
         if (this.globe) {
             this.scene.remove(this.globe);
@@ -151,17 +154,26 @@ class Globe {
         }
         
         if (this.renderer) {
+            // Force immediate cleanup
+            this.renderer.setAnimationLoop(null);
             this.renderer.dispose();
             this.renderer.forceContextLoss();
-            this.offscreenCanvas.remove();
+            if (this.renderer.domElement) {
+                this.renderer.domElement.remove();
+            }
+            this.renderer = null;
         }
         
-        this.offscreenCanvas = null;
-        this.offscreenContext = null;
+        // Clear all references
         this.globe = null;
         this.scene = null;
         this.camera = null;
-        this.renderer = null;
+        this.container = null;
+        
+        // Remove global reference
+        if (window.globeInstance === this) {
+            window.globeInstance = null;
+        }
     }
 
     showErrorState() {
