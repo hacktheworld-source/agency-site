@@ -226,7 +226,7 @@ export class PageTransition {
         const contactForm = document.getElementById('contactForm');
         if (contactForm) {
             contactForm.addEventListener('submit', async (e) => {
-                e.preventDefault(); // Prevent form submission
+                e.preventDefault();
                 
                 const submitButton = contactForm.querySelector('button[type="submit"]');
                 const originalText = submitButton.textContent;
@@ -247,10 +247,17 @@ export class PageTransition {
                     const result = await response.json();
 
                     if (result.success) {
-                        // Show success message
+                        // Show success message modal
                         const successMessage = document.getElementById('successMessage');
                         if (successMessage) {
                             successMessage.classList.add('active');
+                            // Add click event to close button if it exists
+                            const closeButton = successMessage.querySelector('.button');
+                            if (closeButton) {
+                                closeButton.addEventListener('click', () => {
+                                    successMessage.classList.remove('active');
+                                });
+                            }
                         }
                         contactForm.reset();
                     } else {
