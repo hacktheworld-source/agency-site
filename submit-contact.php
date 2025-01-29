@@ -10,11 +10,13 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-require 'vendor/autoload.php'; // If using Composer
-// Or require these if manually downloading PHPMailer:
-// require 'PHPMailer/src/Exception.php';
-// require 'PHPMailer/src/PHPMailer.php';
-// require 'PHPMailer/src/SMTP.php';
+// Update paths to point to correct location
+require 'vendor/PHPMailer/src/Exception.php';
+require 'vendor/PHPMailer/src/PHPMailer.php';
+require 'vendor/PHPMailer/src/SMTP.php';
+
+// Remove or comment out the composer autoload since we're not using it
+// require 'vendor/autoload.php';
 
 $config = require_once 'config/mail.php';
 
