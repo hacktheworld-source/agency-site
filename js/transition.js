@@ -187,6 +187,27 @@ export class PageTransition {
             });
         }
 
+        // Reinitialize hero form
+        const heroForm = document.getElementById('heroForm');
+        if (heroForm) {
+            heroForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const emailInput = heroForm.querySelector('input[type="email"]');
+                if (!emailInput) {
+                    window.location.href = '/contact.html';
+                    return;
+                }
+
+                if (!emailInput.checkValidity()) {
+                    return;
+                }
+
+                const redirectUrl = `/contact.html${emailInput.value ? `?email=${encodeURIComponent(emailInput.value)}` : ''}`;
+                window.location.href = redirectUrl;
+            });
+        }
+
         // Reinitialize forms
         const forms = document.querySelectorAll('form');
         forms.forEach(form => {
@@ -199,6 +220,49 @@ export class PageTransition {
         if (counter && heroStat) {
             heroStat.classList.add('visible');
             this.animateCounter(counter, 133, 2000);
+        }
+
+        // Reinitialize contact form
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault(); // Prevent form submission
+                
+                const submitButton = contactForm.querySelector('button[type="submit"]');
+                const originalText = submitButton.textContent;
+                submitButton.disabled = true;
+                submitButton.textContent = 'Sending...';
+
+                try {
+                    const formData = new FormData(contactForm);
+                    const response = await fetch(contactForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json',
+                            'X-Requested-With': 'XMLHttpRequest'
+                        }
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        // Show success message
+                        const successMessage = document.getElementById('successMessage');
+                        if (successMessage) {
+                            successMessage.classList.add('active');
+                        }
+                        contactForm.reset();
+                    } else {
+                        throw new Error(result.message || 'Submission failed');
+                    }
+                } catch (error) {
+                    alert(`Error: ${error.message}`);
+                } finally {
+                    submitButton.disabled = false;
+                    submitButton.textContent = originalText;
+                }
+            });
         }
     }
 
