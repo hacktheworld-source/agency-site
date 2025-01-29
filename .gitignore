@@ -41,4 +41,7 @@ vendor/
 # Bluehost specific
 .well-known/
 .htaccess.phpupgrader.*
-error_log 
+error_log
+
+# Mail
+mail.php

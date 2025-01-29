@@ -5,6 +5,19 @@ header('Content-Type: application/json');
 // Prevent any output before our JSON response
 ob_start();
 
+// Include PHPMailer classes
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+require 'vendor/autoload.php'; // If using Composer
+// Or require these if manually downloading PHPMailer:
+// require 'PHPMailer/src/Exception.php';
+// require 'PHPMailer/src/PHPMailer.php';
+// require 'PHPMailer/src/SMTP.php';
+
+$config = require_once 'config/mail.php';
+
 try {
     // Validate request method
     if ($_SERVER["REQUEST_METHOD"] !== "POST") {
@@ -28,23 +41,44 @@ try {
         throw new Exception('Invalid email format');
     }
 
-    // Prepare email content
-    $to = "hello@snowtech.agency";
-    $subject = "New Project Inquiry from $name";
-    $emailContent = "New Project Inquiry\n\n";
-    $emailContent .= "Name: $name\n";
-    $emailContent .= "Email: $email\n";
-    $emailContent .= "Project Type: $projectType\n";
-    $emailContent .= "Timeline: $timeline\n\n";
-    $emailContent .= "Message:\n$message";
+    // Create a new PHPMailer instance
+    $mail = new PHPMailer(true);
 
-    $headers = "From: $email\r\n";
-    $headers .= "Reply-To: $email\r\n";
-    $headers .= "X-Mailer: PHP/" . phpversion();
+    // Server settings
+    $mail->isSMTP();
+    $mail->Host = $config['smtp_host'];
+    $mail->SMTPAuth = true;
+    $mail->Username = $config['smtp_username'];
+    $mail->Password = $config['smtp_password'];
+    $mail->SMTPSecure = $config['smtp_secure'];
+    $mail->Port = $config['smtp_port'];
+
+    // Recipients
+    $mail->setFrom('hello@snowtech.agency', 'Snow Tech Website');
+    $mail->addReplyTo($email, $name);
+    $mail->addAddress('hello@snowtech.agency', 'Snow Tech');
+
+    // Content
+    $mail->isHTML(true);
+    $mail->Subject = "New Project Inquiry from $name";
+    
+    // HTML email body
+    $htmlContent = "
+    <h2>New Project Inquiry</h2>
+    <p><strong>Name:</strong> $name</p>
+    <p><strong>Email:</strong> $email</p>
+    <p><strong>Project Type:</strong> $projectType</p>
+    <p><strong>Timeline:</strong> $timeline</p>
+    <h3>Message:</h3>
+    <p>" . nl2br(htmlspecialchars($message)) . "</p>
+    ";
+    
+    $mail->Body = $htmlContent;
+    $mail->AltBody = strip_tags(str_replace(['<br>', '</p>'], ["\n", "\n\n"], $htmlContent));
 
     // Send email
-    if (!mail($to, $subject, $emailContent, $headers)) {
-        throw new Exception('Failed to send email');
+    if (!$mail->send()) {
+        throw new Exception('Failed to send email: ' . $mail->ErrorInfo);
     }
 
     // Clear any output buffers
