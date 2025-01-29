@@ -119,6 +119,11 @@ export class PageTransition {
             // Reinitialize other scripts
             this.reinitializeScripts();
 
+            // After new content is injected
+            if (window.initializeHandlers) {
+                window.initializeHandlers();
+            }
+
         } catch (error) {
             console.error('Navigation error:', error);
             if (this.DEBUG) console.log('Navigation failed:', error);

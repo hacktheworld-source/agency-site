@@ -356,3 +356,58 @@ function toggleMobileMenu(isOpen) {
 // Remove any mobile-specific form handlers
 const mobileHandlers = document.querySelectorAll('[data-mobile-handler]');
 mobileHandlers.forEach(handler => handler.remove());
+
+// At the top of the file
+window.initializeHandlers = function() {
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+
+            try {
+                const formData = new FormData(contactForm);
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    // Show success message modal
+                    const successMessage = document.getElementById('successMessage');
+                    if (successMessage) {
+                        successMessage.classList.add('active');
+                        const closeButton = successMessage.querySelector('.button');
+                        if (closeButton) {
+                            closeButton.addEventListener('click', () => {
+                                successMessage.classList.remove('active');
+                            });
+                        }
+                    }
+                    contactForm.reset();
+                } else {
+                    throw new Error(result.message || 'Submission failed');
+                }
+            } catch (error) {
+                alert(`Error: ${error.message}`);
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = originalText;
+            }
+        });
+    }
+
+    // Add any other handlers you need to initialize here
+};
+
+// Call on initial load
+document.addEventListener('DOMContentLoaded', window.initializeHandlers);
