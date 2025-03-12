@@ -3,7 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AI Development Services - From Integration to Full Products">
+    
+    <!-- Primary Meta Tags -->
+    <title>AI & Web Development Services | Snow Tech Agency</title>
+    <meta name="title" content="AI & Web Development Services | Snow Tech Agency">
+    <meta name="description" content="Expert web app development, AI tools, and website services. From custom dashboards to AI automation—get clear timelines and pricing in a 10-min chat.">
+    <meta name="keywords" content="web development services, AI development, custom software, website maintenance, tech agency">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://snowtech.agency/services.html">
+    <meta property="og:title" content="AI & Web Development Services | Snow Tech Agency">
+    <meta property="og:description" content="Expert web app development, AI tools, and website services. From custom dashboards to AI automation—get clear timelines and pricing in a 10-min chat.">
+    <meta property="og:image" content="https://snowtech.agency/assets/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://snowtech.agency/services.html">
+    <meta property="twitter:title" content="AI & Web Development Services | Snow Tech Agency">
+    <meta property="twitter:description" content="Expert web app development, AI tools, and website services. From custom dashboards to AI automation—get clear timelines and pricing in a 10-min chat.">
+    <meta property="twitter:image" content="https://snowtech.agency/assets/images/og-image.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://snowtech.agency/services.html">
+    
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "AI & Web Development Services",
+      "description": "Expert web app development, AI tools, and website services by Snow Tech Agency.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Snow Tech Agency",
+        "url": "https://snowtech.agency"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Web App Development",
+          "description": "Custom web applications that scale your business"
+        },
+        {
+          "@type": "Offer",
+          "name": "AI Tools Development",
+          "description": "Smart solutions that solve real problems"
+        },
+        {
+          "@type": "Offer",
+          "name": "Website Development",
+          "description": "Fast, sharp sites that work"
+        },
+        {
+          "@type": "Offer",
+          "name": "Maintenance Services",
+          "description": "Keep your tech alive and running smoothly"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Early theme detection to prevent flash -->
+    <script>
+        // Apply theme immediately to prevent flash during page transitions
+        (function() {
+            try {
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme) {
+                    document.documentElement.setAttribute('data-theme', savedTheme);
+                } else {
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+                }
+            } catch (e) {
+                // Fallback if localStorage is unavailable
+                console.error('Theme initialization error:', e);
+            }
+        })();
+    </script>
     
     <!-- Add these before other resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,22 +89,21 @@
     <link rel="dns-prefetch" href="https://unpkg.com">
     
     <!-- Preload critical assets -->
-    <link rel="preload" href="/assets/globe-texture.png" as="image">
+    <!-- <link rel="preload" href="/assets/globe-texture.png" as="image"> -->
     <link rel="preload" href="/assets/noise.svg" as="image">
     
     <!-- Optimize font loading -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
     
     <!-- Add browser hints -->
     <meta http-equiv="x-dns-prefetch-control" content="on">
-    <link rel="modulepreload" href="https://unpkg.com/three@0.132.2/build/three.module.js">
+    <!-- <link rel="modulepreload" href="https://unpkg.com/three@0.132.2/build/three.module.js"> -->
     
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/design-system.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+    <!-- CSS files -->
+    <link rel="stylesheet" href="css/main.css">
     
-    <title>AI Development Services | Snow Tech</title>
+    <title>Services | Snow Tech</title>
 </head>
 <body>
     <header class="site-header">
@@ -42,6 +119,22 @@
                     <li><a href="/about.html">About</a></li>
                     <li><a href="/contact.html" class="cta-button">Contact Us</a></li>
                 </ul>
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
             </nav>
         </div>
     </header>
@@ -49,8 +142,9 @@
     <main>
         <section class="services-hero grain-overlay">
             <div class="container">
-                <h1 class="gradient-text">Pick Your Service</h1>
-                <p class="lead">Fast delivery. Clean code. No complexity.</p>
+                <h1 class="gradient-text">Your Tech, Built Clean and Quick.</h1>
+                <p class="lead">We craft web apps, AI tools, and websites that get the job done—fast, solid, yours.</p>
+                <a href="#services-list" class="button primary">Find Your Service</a>
             </div>
             <div class="hero-background">
                 <div class="gradient-orb primary"></div>
@@ -58,39 +152,60 @@
             </div>
         </section>
 
-        <section class="services-grid">
+        <section id="services-list" class="services-grid">
             <div class="container">
+                <div class="section-header">
+                    <h2 class="gradient-text">What We Deliver</h2>
+                    <p class="section-lead">Pick what fits—each built to run smooth and grow easy.</p>
+                </div>
+                
                 <div class="services-list">
-                    <!-- MVP Development -->
+                    <!-- Web Apps -->
                     <div class="service-card">
                         <div class="service-header">
-                            <h3>MVP Development</h3>
-                            <div class="timeline">6-12 Weeks</div>
+                            <h3>Web Apps</h3>
+                            <div class="timeline">4-12 Weeks</div>
                         </div>
-                        <p>Launch your AI product fast. No bloat. Just results.</p>
+                        <p>Apps that power your business.</p>
                         <ul class="service-features">
-                            <li>Core AI Features</li>
-                            <li>Clean Architecture</li>
-                            <li>Ready for Scale</li>
-                            <li>Weekly Updates</li>
+                            <li>Custom Dashboards: See what matters.</li>
+                            <li>Workflow Tools: Move faster.</li>
+                            <li>Scalable Systems: Grow with ease.</li>
+                            <li>Clean Design: Looks sharp, runs smoother.</li>
                         </ul>
-                        <a href="/contact.html" class="button primary">Get Timeline →</a>
+                        <a href="/contact.html" class="button primary">Get Timeline & Price →</a>
                     </div>
 
-                    <!-- AI Integration -->
-                    <div class="service-card featured">
+                    <!-- AI Tools -->
+                    <div class="service-card">
                         <div class="service-header">
-                            <h3>AI Integration</h3>
+                            <h3>AI Tools</h3>
                             <div class="timeline">2-8 Weeks</div>
                         </div>
-                        <p>Add AI to your existing product. GPT, custom models, or both.</p>
+                        <p>Power your SaaS or custom solutions.</p>
                         <ul class="service-features">
-                            <li>LLM Integration</li>
-                            <li>Token Optimization</li>
-                            <li>Clean APIs</li>
-                            <li>Performance Tuning</li>
+                            <li>AI SaaS Support: Build and run your product.</li>
+                            <li>Automation Bots: Streamline your operations.</li>
+                            <li>Smart Insights: Data that drives decisions.</li>
+                            <li>Tailored AI: Designed for your needs or theirs.</li>
                         </ul>
-                        <a href="/contact.html" class="button primary">Get Timeline →</a>
+                        <a href="/contact.html" class="button primary">Get Timeline & Price →</a>
+                    </div>
+
+                    <!-- Websites -->
+                    <div class="service-card">
+                        <div class="service-header">
+                            <h3>Websites</h3>
+                            <div class="timeline">2-6 Weeks</div>
+                        </div>
+                        <p>Sites that grab and hold.</p>
+                        <ul class="service-features">
+                            <li>Landing Pages: Pull them in.</li>
+                            <li>E-Commerce: Sell without stress.</li>
+                            <li>Portfolios: Stand out clean.</li>
+                            <li>Fast Loads: Never lose a visitor.</li>
+                        </ul>
+                        <a href="/contact.html" class="button primary">Get Timeline & Price →</a>
                     </div>
 
                     <!-- Maintenance -->
@@ -99,14 +214,14 @@
                             <h3>Maintenance</h3>
                             <div class="timeline">Ongoing</div>
                         </div>
-                        <p>Keep your AI product running smooth. We handle the tech.</p>
+                        <p>Keep your tech alive.</p>
                         <ul class="service-features">
-                            <li>New Features</li>
-                            <li>Performance Fixes</li>
-                            <li>Security Updates</li>
-                            <li>24/7 Support</li>
+                            <li>Fixes Fast: Bugs don't stand a chance.</li>
+                            <li>Fresh Updates: Stay safe, stay current.</li>
+                            <li>Always On: We watch, you rest.</li>
+                            <li>New Features: Keep it evolving.</li>
                         </ul>
-                        <a href="/contact.html" class="button primary">Get Timeline →</a>
+                        <a href="/contact.html" class="button primary">Get Timeline & Price →</a>
                     </div>
                 </div>
             </div>
@@ -114,27 +229,28 @@
 
         <section class="process-section grain-overlay">
             <div class="container">
-                <h2 class="gradient-text">How We Work</h2>
+                <h2 class="gradient-text">How We Get It Done</h2>
+                <p class="section-lead">Clear steps, fast moves—no guesswork.</p>
                 <div class="process-steps">
                     <div class="step">
                         <span class="step-number">1</span>
-                        <h3>Quick Chat</h3>
-                        <p>10-min call. We discuss your needs.</p>
+                        <h3>First Chat</h3>
+                        <p>10-min call. We hear your goals.</p>
                     </div>
                     <div class="step">
                         <span class="step-number">2</span>
-                        <h3>Clear Plan</h3>
-                        <p>Get timeline and price in 24h.</p>
+                        <h3>Set Plan</h3>
+                        <p>Timeline and cost in 24h.</p>
                     </div>
                     <div class="step">
                         <span class="step-number">3</span>
-                        <h3>Fast Build</h3>
-                        <p>Weekly updates. No surprises.</p>
+                        <h3>Build Fast</h3>
+                        <p>Weekly updates. Stay in the loop.</p>
                     </div>
                     <div class="step">
                         <span class="step-number">4</span>
-                        <h3>Ship It</h3>
-                        <p>Clean code. Ready to scale.</p>
+                        <h3>Go Live</h3>
+                        <p>Clean code. Ready to roll.</p>
                     </div>
                 </div>
             </div>
@@ -142,46 +258,46 @@
 
         <section class="tech-focus">
             <div class="container">
-                <h2>Tech Stack Flexibility</h2>
-                <p class="section-lead">We adapt to your tech. Here's what we commonly work with:</p>
+                <h2 class="gradient-text">Tech We Know</h2>
+                <p class="section-lead">We fit your stack—or bring ours. Here's what we run best.</p>
                 
                 <div class="tech-grid">
                     <div class="tech-item">
                         <h4>AI/ML</h4>
-                        <p>OpenAI, Anthropic, LangChain, LlamaIndex, Hugging Face, TensorFlow, PyTorch, Vertex AI</p>
+                        <p>OpenAI, Anthropic, LangChain, TensorFlow, PyTorch—AI that works.</p>
                     </div>
                     <div class="tech-item">
                         <h4>Frontend</h4>
-                        <p>React, Vue, Next.js, Angular, Svelte, Tailwind, TypeScript, WebGL, Three.js</p>
+                        <p>React, Next.js, Svelte, Tailwind—fronts that pop.</p>
                     </div>
                     <div class="tech-item">
                         <h4>Backend</h4>
-                        <p>Node.js, Python, Go, Java, C#, Ruby, FastAPI, Django, Express</p>
+                        <p>Node.js, Python, Go, FastAPI—backends that hum.</p>
                     </div>
                     <div class="tech-item">
                         <h4>Database</h4>
-                        <p>PostgreSQL, MongoDB, Redis, Elasticsearch, Pinecone, Weaviate, MySQL, Vector DBs</p>
+                        <p>PostgreSQL, MongoDB, Redis, Pinecone—data that flows.</p>
                     </div>
                     <div class="tech-item">
                         <h4>Cloud & DevOps</h4>
-                        <p>AWS, GCP, Azure, Docker, Kubernetes, Vercel, Netlify, CI/CD</p>
+                        <p>AWS, GCP, Docker, CI/CD—deployed right.</p>
                     </div>
                     <div class="tech-item">
                         <h4>Tools & APIs</h4>
-                        <p>REST, GraphQL, WebSockets, OAuth, Stripe, SendGrid, Twilio, Analytics</p>
+                        <p>REST, GraphQL, Stripe, Twilio—connected tight.</p>
                     </div>
                 </div>
                 
                 <div class="tech-note">
-                    <p>Don't see your tech? No problem. We adapt to your stack preferences.</p>
+                    <p>Not listed? We adapt to your tech—no sweat.</p>
                 </div>
             </div>
         </section>
 
         <section class="cta-section">
             <div class="container">
-                <h2>Need It Built Right?</h2>
-                <p>Get Timeline & Price → 10-Min Chat</p>
+                <h2>Need It Built Clean?</h2>
+                <p>Grab your timeline and price—10-min chat.</p>
                 <a href="/contact.html" class="button primary">Start Now →</a>
             </div>
         </section>
@@ -194,13 +310,9 @@
     </footer>
 
     <script src="js/main.js"></script>
-    <!-- Add this before closing body tag in all HTML files -->
-    <script type="module">
-        import { PageTransition } from '/js/transition.js';
-        document.addEventListener('DOMContentLoaded', () => {
-            window.pageTransition = new PageTransition();
-        });
-    </script>
+    <script src="js/theme.js"></script>
+    <!-- Replace transition script with standard page initialization -->
+    <script src="js/page-init.js"></script>
 </body>
 </html>
 

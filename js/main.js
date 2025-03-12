@@ -218,20 +218,50 @@ const observer = new IntersectionObserver((entries) => {
     rootMargin: '50px',
     threshold: 0.1
 });
+/*
+// Reviews scroll animation
+function initializeReviewsAnimation() {
+    const reviewCards = document.querySelectorAll('.review-card');
+    if (!reviewCards.length) return;
+
+    const reviewsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // Only show one review at a time
+                reviewCards.forEach(card => {
+                    if (card !== entry.target) {
+                        card.classList.remove('visible');
+                    }
+                });
+            }
+        });
+    }, {
+        threshold: 0.5, // Show when card is 50% visible
+        rootMargin: '-10% 0px -10% 0px' // Adds a bit of buffer
+    });
+
+    reviewCards.forEach(card => reviewsObserver.observe(card));
+}
+    */
 
 // Initialize animations
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize counter immediately
+    // Initialize counter immediately - COMMENTED OUT
+    /*
     const counter = document.getElementById('companies-counter');
     const heroStat = document.querySelector('.hero-stat');
     if (counter && heroStat) {
         heroStat.classList.add('visible');
         animateCounter(counter, 133, 2000);
     }
+    */
     
     // Initialize all animations immediately
     const animatedElements = document.querySelectorAll('.fade-in, .scale-in, .slide-in, .challenge-category');
     animatedElements.forEach(el => observer.observe(el));
+
+    // initializeReviewsAnimation();
 });
 
 // Add smooth header transition

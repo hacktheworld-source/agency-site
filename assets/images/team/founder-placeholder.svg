@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240">
+  <!-- Background Circle -->
+  <circle cx="120" cy="120" r="120" fill="#0A0A0A"/>
+  
+  <!-- Head -->
+  <circle cx="120" cy="90" r="45" fill="#0066FF"/>
+  
+  <!-- Shoulders/Body Silhouette -->
+  <path d="M60 190 C60 130 180 130 180 190" fill="#0066FF" />
+  
+  <!-- Suit Collar Suggestion -->
+  <path d="M90 135 L120 165 L150 135" stroke="#0A0A0A" stroke-width="5" fill="none" />
+  
+  <!-- Professional Detail - Button Suggestion -->
+  <circle cx="120" cy="170" r="4" fill="#0A0A0A"/>
+</svg> 

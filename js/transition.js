@@ -168,7 +168,8 @@ export class PageTransition {
     }
 
     reinitializeScripts() {
-        // Reinitialize globe if on homepage
+        // Reinitialize globe if on homepage - COMMENTED OUT FOR REVIEW
+        /* 
         const globeContainer = document.querySelector('.globe-container');
         if (globeContainer && !window.matchMedia('(max-width: 768px)').matches) {
             // First, clean up any existing globe instance
@@ -191,6 +192,7 @@ export class PageTransition {
                 console.error('Failed to load globe:', error);
             });
         }
+        */
 
         // Reinitialize hero form
         const heroForm = document.getElementById('heroForm');
@@ -219,13 +221,15 @@ export class PageTransition {
             form.reset();
         });
 
-        // Reinitialize counter animation if on homepage
+        // Reinitialize counter animation if on homepage - COMMENTED OUT
+        /*
         const counter = document.getElementById('companies-counter');
         const heroStat = document.querySelector('.hero-stat');
         if (counter && heroStat) {
             heroStat.classList.add('visible');
             this.animateCounter(counter, 133, 2000);
         }
+        */
 
         // Reinitialize contact form
         const contactForm = document.getElementById('contactForm');

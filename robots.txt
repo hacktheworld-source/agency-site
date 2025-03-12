@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Sitemap: https://snowtech.agency/sitemap.xml
+
+# Optimize crawling
+Disallow: /css/
+Disallow: /js/
+Disallow: /assets/noise.svg 

@@ -1,0 +1,176 @@
+/* 
+ * BASE STYLES
+ * Variables, typography, and general element styling
+ */
+
+/* Variables */
+:root {
+    /* Core colors */
+    --primary: #0066FF;
+    --primary-rgb: 0, 102, 255;
+    --primary-dark: #0052CC;
+    --secondary: #475569;
+    --accent: #00F0FF;
+    --accent-rgb: 0, 240, 255;
+    
+    /* Layout */
+    --container-width: 1200px;
+    --header-height: 80px;
+    
+    /* Dark theme (default) */
+    --dark: #000000;
+    --light: #FFFFFF;
+    --gray: #D1D1D1;
+    --success: #10B981;
+    --danger: #EF4444;
+    --dark-bg: #0A0000;
+    --dark-text: #FFFFFF;
+    --dark-card: #111111;
+    
+    /* Theme-aware variables */
+    --bg-primary: var(--dark-bg);
+    --bg-card: var(--dark-card);
+    --text-primary: var(--light);
+    --text-secondary: rgba(255, 255, 255, 0.8);
+    --text-muted: rgba(255, 255, 255, 0.6);
+    --border-light: rgba(255, 255, 255, 0.1);
+    --card-bg: rgba(17, 17, 17, 0.9);
+    --card-hover-bg: rgba(30, 30, 30, 0.95);
+    --section-bg: var(--dark);
+    --section-alt-bg: linear-gradient(180deg, var(--dark) 0%, var(--dark-card) 100%);
+    --header-transparent: transparent;
+    --header-solid: rgba(0, 0, 0, 0.9);
+    --footer-bg: var(--dark);
+}
+
+/* Light theme */
+[data-theme="light"] {
+    --dark: #FFFFFF;
+    --light: #111111;
+    --gray: #475569;
+    --dark-bg: #F5F7FA;
+    --dark-text: #111111;
+    --dark-card: #FFFFFF;
+    
+    /* Theme-aware variables */
+    --bg-primary: var(--dark-bg);
+    --bg-card: var(--dark-card);
+    --text-primary: var(--light);
+    --text-secondary: rgba(17, 17, 17, 0.8);
+    --text-muted: rgba(17, 17, 17, 0.6);
+    --border-light: rgba(0, 0, 0, 0.1);
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --card-hover-bg: rgba(240, 240, 240, 0.95);
+    --section-bg: var(--dark-bg);
+    --section-alt-bg: linear-gradient(180deg, var(--dark-bg) 0%, var(--dark-card) 100%);
+    --header-transparent: transparent;
+    --header-solid: rgba(255, 255, 255, 0.9);
+    --footer-bg: #F0F2F5;
+}
+
+/* Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'IBM Plex Mono', monospace;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+.lead {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-dark);
+}
+
+/* Utility Classes */
+.gradient-text {
+    background: linear-gradient(90deg, var(--primary) 0%, var(--accent, #00F0FF) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
+
+/* Keep headings in Plus Jakarta Sans */
+h1, h2, h3, h4, h5, h6, 
+.gradient-text, 
+.button:not(.nav-links .cta-button), /* Exclude nav CTA button */
+.logo {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Apply monospace to nav links */
+.nav-links {
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+/* Media Queries for Base Styles */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 1.75rem;
+    }
+    
+    .container {
+        width: 95%;
+        padding: 0 10px;
+    }
+} 

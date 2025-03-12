@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>OliveSays Case Study: AI Website Evaluator | Snow Tech Agency</title>
+    <meta name="title" content="OliveSays Case Study: AI Website Evaluator | Snow Tech Agency">
+    <meta name="description" content="Discover how we built OliveSays, an AI-powered website evaluator that provides conversational analysis of design, performance, and SEO. Real project, real results.">
+    <meta name="keywords" content="AI website analysis, website evaluator, case study, OliveSays, Snow Tech Agency">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://snowtech.agency/case-studies/olivesays.html">
+    <meta property="og:title" content="OliveSays Case Study: AI Website Evaluator | Snow Tech Agency">
+    <meta property="og:description" content="Discover how we built OliveSays, an AI-powered website evaluator that provides conversational analysis of design, performance, and SEO. Real project, real results.">
+    <meta property="og:image" content="https://snowtech.agency/assets/images/case-studies/olivesays-chat.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://snowtech.agency/case-studies/olivesays.html">
+    <meta property="twitter:title" content="OliveSays Case Study: AI Website Evaluator | Snow Tech Agency">
+    <meta property="twitter:description" content="Discover how we built OliveSays, an AI-powered website evaluator that provides conversational analysis of design, performance, and SEO. Real project, real results.">
+    <meta property="twitter:image" content="https://snowtech.agency/assets/images/case-studies/olivesays-chat.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://snowtech.agency/case-studies/olivesays.html">
+    
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "OliveSays: AI Website Evaluator Case Study",
+      "description": "How we built an AI-powered website analysis tool that provides conversational feedback on design, performance, and SEO.",
+      "image": "https://snowtech.agency/assets/images/case-studies/olivesays-chat.png",
+      "datePublished": "2024-03-12",
+      "dateModified": "2024-03-12",
+      "author": {
+        "@type": "Organization",
+        "name": "Snow Tech Agency",
+        "url": "https://snowtech.agency"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Snow Tech Agency",
+        "url": "https://snowtech.agency"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://snowtech.agency/case-studies/olivesays.html"
+      },
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "OliveSays",
+        "applicationCategory": "WebApplication",
+        "operatingSystem": "Web Browser",
+        "url": "https://olivesays.com"
+      }
+    }
+    </script>
+    
+    <!-- Early theme detection to prevent flash -->
+    <script>
+        // Apply theme immediately to prevent flash during page transitions
+        (function() {
+            try {
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme) {
+                    document.documentElement.setAttribute('data-theme', savedTheme);
+                } else {
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+                }
+            } catch (e) {
+                console.error('Theme initialization error:', e);
+            }
+        })();
+    </script>
+    
+    <!-- Add these before other resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Optimize font loading -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+    
+    <!-- CSS files -->
+    <link rel="stylesheet" href="/css/main.css">
+    
+    <title>OliveSays Case Study | Snow Tech Agency</title>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <nav class="main-nav">
+                <a href="/" class="logo">
+                    Snow Tech
+                </a>
+                <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/services.html">Services</a></li>
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/contact.html" class="cta-button">Contact Us</a></li>
+                </ul>
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Case Study Hero -->
+        <section class="case-study-hero grain-overlay">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="/">Home</a> / <span>Case Study</span>
+                </div>
+                <h1 class="gradient-text">OliveSays – AI Website Evaluator</h1>
+                <p class="lead">Transforming website analysis into dynamic conversations</p>
+                
+                <div class="case-overview">
+                    <div class="case-overview-item">
+                        <span class="label">Client:</span>
+                        <span class="value">Internal Project</span>
+                    </div>
+                    <div class="case-overview-item">
+                        <span class="label">Timeline:</span>
+                        <span class="value">Dec 2024 - Mar 2025</span>
+                    </div>
+                    <div class="case-overview-item">
+                        <span class="label">Technologies:</span>
+                        <span class="value">React, JavaScript, TypeScript, OpenAI API</span>
+                    </div>
+                </div>
+                
+                <div class="try-project">
+                    <a href="https://olivesays.com" target="_blank" rel="noopener noreferrer" class="button primary">
+                        Try OliveSays Now →
+                    </a>
+                    <p class="try-project-note">Get $5 free credit to analyze your first website</p>
+                </div>
+            </div>
+            <div class="hero-background">
+                <div class="gradient-orb primary"></div>
+                <div class="gradient-orb secondary"></div>
+            </div>
+        </section>
+
+        <!-- Case Study Content -->
+        <section class="case-study-content">
+            <div class="container">
+                <div class="content-grid">
+                    <!-- Sidebar navigation -->
+                    <div class="case-nav">
+                        <div class="case-nav-inner">
+                            <h3>Contents</h3>
+                            <ul>
+                                <li><a href="#introduction">Introduction</a></li>
+                                <li><a href="#vision">The Vision</a></li>
+                                <li><a href="#challenge">The Challenge</a></li>
+                                <li><a href="#solution">Our Solution</a></li>
+                                <li><a href="#results">Results</a></li>
+                            </ul>
+                            
+                            <div class="case-cta">
+                                <h4>Need a similar solution?</h4>
+                                <a href="/contact.html" class="button primary">Get in Touch →</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Main content -->
+                    <div class="case-content">
+                        <section id="introduction" class="content-section">
+                            <h2>Introduction</h2>
+                            <p>Snow Tech built OliveSays to showcase our SaaS development skills and offer entrepreneurs a better way to evaluate their websites. Launched in March 2025 after starting in December 2024, OliveSays uses AI to provide a back-and-forth conversation for website analysis.</p>
+                            
+                            <p>It's a practical tool we use internally, and its uniqueness in the AI and website evaluation space made it a fun challenge. This case study covers how we made it happen.</p>
+                            
+                            <div class="case-image">
+                                <img src="/assets/images/case-studies/olivesays-landing.png" alt="OliveSays interface preview" class="full-width">
+                            </div>
+                        </section>
+                        
+                        <section id="vision" class="content-section">
+                            <h2>The Vision</h2>
+                            <p>We wanted to create a new way to analyze websites, turning it into a conversation rather than a static report. Our mission at Snow Tech focuses on SaaS creation and AI applications, and OliveSays fits that goal.</p>
+                            
+                            <p>We targeted entrepreneurs and businesses needing honest, constructive feedback on their sites, delivering a tool that's useful and different.</p>
+                            
+                            <div class="quote-block">
+                                <blockquote>
+                                    "The goal was to make website analysis feel like a conversation with an expert, not just a technical report."
+                                </blockquote>
+                            </div>
+
+                            <div class="case-image">
+                                <img src="/assets/images/case-studies/olivesays-interface.png" alt="OliveSays interface details" class="full-width">
+                            </div>
+                        </section>
+                        
+                        <section id="challenge" class="content-section">
+                            <h2>The Challenge</h2>
+                            <p>Building OliveSays wasn't easy. We faced several hurdles:</p>
+                            
+                            <ul class="challenge-list">
+                                <li><strong>Data Collection:</strong> Websites often block scraping attempts, making data collection tough.</li>
+                                <li><strong>Context Management:</strong> The AI needed to handle large contexts, which risked overwhelming it with data.</li>
+                                <li><strong>User Experience:</strong> The interface had to be intuitive for users with no tech background.</li>
+                                <li><strong>Financial Viability:</strong> We needed to keep costs low and ensure profitability.</li>
+                            </ul>
+                        </section>
+                        
+                        <section id="solution" class="content-section">
+                            <h2>Our Solution</h2>
+                            <p>We tackled these issues head-on over three months with a clear process:</p>
+                            
+                            <div class="solution-grid">
+                                <div class="solution-card">
+                                    <h3>Prototyping</h3>
+                                    <p>Started with a basic model to test the concept.</p>
+                                </div>
+                                
+                                <div class="solution-card">
+                                    <h3>Coding</h3>
+                                    <p>Used React, JavaScript, and TypeScript for the frontend, hosted on Bluehost. Built web scraping with Puppeteer's stealth plugin, respecting robots.txt to avoid blocks.</p>
+                                </div>
+                                
+                                <div class="solution-card">
+                                    <h3>AI Integration</h3>
+                                    <p>Leveraged the OpenAI API instead of training our own model, breaking the chat into phases. Each phase fed the AI relevant data—like aesthetics in one, performance in another—keeping it manageable.</p>
+                                </div>
+                                
+                                <div class="solution-card">
+                                    <h3>Report Generation</h3>
+                                    <p>Added a feature to compile insights into downloadable reports.</p>
+                                </div>
+                                
+                                <div class="solution-card">
+                                    <h3>UI and Structure</h3>
+                                    <p>Refined the design with HTML and CSS, opting for a dark, non-colorless look that's characterful but not overbearing. Used a rule of thirds layout for the landing page to guide users naturally.</p>
+                                </div>
+                                
+                                <div class="solution-card">
+                                    <h3>Testing</h3>
+                                    <p>Tested functionality and load capacity, ensuring it worked smoothly.</p>
+                                </div>
+                            </div>
+                            
+                            <p>To make it user-friendly, we added clear phase indicators and a floating action button for continuation. For profitability, we gave users $5 initial credit and integrated Stripe Customer Portal for a pay-as-you-go tier after that runs out.</p>
+                            
+                            <div class="case-image">
+                                <img src="/assets/images/case-studies/olivesays-balance-page.png" alt="OliveSays interface details" class="full-width">
+                            </div>
+                        </section>
+                        
+                        <section id="results" class="content-section">
+                            <h2>Results</h2>
+                            <p>OliveSays launched in March 2025, but it's too early for full metrics. We're still reaching out for user feedback and tracking growth. However, it's become a beloved tool internally at Snow Tech and has already been used on a few of our own websites.</p>
+                            
+                            <p>The tool handles website evaluations quickly, and its chat feature sets it apart from static analysis tools. It offers real-time, sharp-eyed critiques on aesthetics, performance, SEO, and more, making it a practical asset for Snow Tech and our audience.</p>
+                            
+                            <!-- Commented out outcome metrics section, too early to tell -->
+                            <!--
+                            <div class="outcome-metrics">
+                                <div class="metric">
+                                    <span class="metric-value">3 min</span>
+                                    <span class="metric-label">Average analysis time</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-value">4.8/5</span>
+                                    <span class="metric-label">User satisfaction</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-value">85%</span>
+                                    <span class="metric-label">Return rate</span>
+                                </div>
+                            </div>
+                            -->
+                            
+                            <div class="next-steps">
+                                <h3>Interested in a similar solution?</h3>
+                                <p>We can build custom AI tools for your specific needs, from website analysis to content generation and beyond.</p>
+                                <a href="/contact.html" class="button primary">Get in Touch →</a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- More Case Studies -->
+        <section class="more-cases">
+            <div class="container">
+                <h2>More Success Stories</h2>
+                <div class="case-preview-grid">
+                    <div class="case-preview-card">
+                        <div class="case-preview-image">
+                            <img src="/assets/case-study-placeholder.png" alt="Future Case Study Preview" loading="lazy">
+                        </div>
+                        <div class="case-preview-content">
+                            <span class="case-study-tag">Coming Soon</span>
+                            <h3>More Success Stories Coming Soon</h3>
+                            <p>We're working on documenting more of our successful projects. Check back soon!</p>
+                            <a href="/contact.html" class="button secondary">Contact Us →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Build Your Solution?</h2>
+                <p>Get Timeline & Price → 10-Min Chat</p>
+                <a href="/contact.html" class="button primary" style="border: none;">Start Now →</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2024 Snow Tech Agency. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/theme.js"></script>
+    <script src="/js/page-init.js"></script>
+</body>
+</html> 

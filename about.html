@@ -3,26 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="About Snow Tech - AI Development Specialists">
+    
+    <!-- Primary Meta Tags -->
+    <title>About Snow Tech Agency | AI & Web Development Experts</title>
+    <meta name="title" content="About Snow Tech Agency | AI & Web Development Experts">
+    <meta name="description" content="Meet the team behind Snow Tech Agency. Led by Ryan Snow, we bring 8+ years of expertise in AI, web development, and cybersecurity to deliver quality software solutions.">
+    <meta name="keywords" content="Snow Tech Agency, tech agency team, software development company, AI developers, web development experts">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://snowtech.agency/about.html">
+    <meta property="og:title" content="About Snow Tech Agency | AI & Web Development Experts">
+    <meta property="og:description" content="Meet the team behind Snow Tech Agency. Led by Ryan Snow, we bring 8+ years of expertise in AI, web development, and cybersecurity to deliver quality software solutions.">
+    <meta property="og:image" content="https://snowtech.agency/assets/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://snowtech.agency/about.html">
+    <meta property="twitter:title" content="About Snow Tech Agency | AI & Web Development Experts">
+    <meta property="twitter:description" content="Meet the team behind Snow Tech Agency. Led by Ryan Snow, we bring 8+ years of expertise in AI, web development, and cybersecurity to deliver quality software solutions.">
+    <meta property="twitter:image" content="https://snowtech.agency/assets/images/og-image.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://snowtech.agency/about.html">
+    
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "About Snow Tech Agency",
+      "description": "Meet the team behind Snow Tech Agency and learn about our expertise in AI and web development.",
+      "mainEntity": {
+        "@type": "Organization",
+        "name": "Snow Tech Agency",
+        "url": "https://snowtech.agency",
+        "founder": {
+          "@type": "Person",
+          "name": "Ryan Snow",
+          "jobTitle": "Founder",
+          "description": "Computer scientist with 8+ years of programming experience and background in US Department of Defense",
+          "knowsAbout": ["Full-stack Development", "AI Development", "Cybersecurity"]
+        },
+        "knowsAbout": [
+          "Web Application Development",
+          "AI Tools Development",
+          "Website Development",
+          "Software Maintenance"
+        ],
+        "sameAs": [
+          "https://olivesays.com"
+        ]
+      }
+    }
+    </script>
+    
+    <!-- Early theme detection to prevent flash -->
+    <script>
+        // Apply theme immediately to prevent flash during page transitions
+        (function() {
+            try {
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme) {
+                    document.documentElement.setAttribute('data-theme', savedTheme);
+                } else {
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+                }
+            } catch (e) {
+                // Fallback if localStorage is unavailable
+                console.error('Theme initialization error:', e);
+            }
+        })();
+    </script>
+    
     <!-- Add these before other resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://unpkg.com">
     
     <!-- Preload critical assets -->
-    <link rel="preload" href="/assets/globe-texture.png" as="image">
+    <!-- <link rel="preload" href="/assets/globe-texture.png" as="image"> -->
     <link rel="preload" href="/assets/noise.svg" as="image">
     
     <!-- Optimize font loading -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
     
     <!-- Add browser hints -->
     <meta http-equiv="x-dns-prefetch-control" content="on">
-    <link rel="modulepreload" href="https://unpkg.com/three@0.132.2/build/three.module.js">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/design-system.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+    <!-- <link rel="modulepreload" href="https://unpkg.com/three@0.132.2/build/three.module.js"> -->
+
+    <!-- CSS files -->
+    <link rel="stylesheet" href="css/main.css">
+    
     <title>About Us | Snow Tech Agency</title>
 </head>
 <body>
@@ -41,6 +115,22 @@
                     <li><a href="/about.html" class="active">About</a></li>
                     <li><a href="/contact.html" class="cta-button">Contact Us</a></li>
                 </ul>
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
             </nav>
         </div>
     </header>
@@ -48,8 +138,9 @@
     <main>
         <section class="about-hero grain-overlay">
             <div class="container">
-                <h1 class="gradient-text">New Agency. Fresh Approach.</h1>
-                <p class="lead">No bloated teams. No agency overhead. Just clean code and fast delivery.</p>
+                <h1 class="gradient-text">We Build Tech That Gets It Done.</h1>
+                <p class="lead">Your ideas, our code—crafted to move fast and stand tall.</p>
+                <a href="#founder-section" class="button primary">Meet the Founder</a>
             </div>
             <div class="hero-background">
                 <div class="gradient-orb primary"></div>
@@ -57,25 +148,70 @@
             </div>
         </section>
 
+        <section id="founder-section" class="founder-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="gradient-text">The Founder</h2>
+                </div>
+                
+                <div class="founder-content">
+                    <div class="founder-photo">
+                        <img src="/assets/images/team/founder-greyscale.png" alt="Snow Tech Founder" class="founder-image">
+                    </div>
+                    
+                    <div class="founder-info">
+                        <p class="founder-bio">
+                            Ryan Snow brings 8+ years of programming passion to Snowtech, shaped by training as a computer scientist in the US Department of Defense. A self-taught full-stack coder with a Cybersecurity degree, they've proven their ability to learn fast and build smarter—a two-time founder now creating Snowtech to deliver quality software. With direct communication and regular check-ins, Ryan ensures every project reflects the client's vision, built to be the best it can be.
+                        </p>
+                        
+                        <blockquote class="founder-quote">
+                            "This agency is my passion. Big things are in the future, and I want your project to be a part of that."
+                        </blockquote>
+                        
+                        <a href="/contact.html" class="button primary founder-cta">Let's Connect</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="about-content">
             <div class="container">
+                <div class="section-header">
+                    <h2 class="gradient-text">What We Bring</h2>
+                    <p class="section-lead">We keep it real, fast, and built to last—here's how.</p>
+                </div>
+                
                 <div class="about-grid">
                     <div class="about-card">
-                        <h2>Why Choose Us?</h2>
+                        <h3>Straight Talk</h3>
+                        <p class="value-desc">No fluff—just clear plans and honest updates.</p>
                         <ul class="about-features">
-                            <li>Direct Communication - Talk to your developer, not account managers</li>
-                            <li>Lower Costs - No big agency overhead means better rates</li>
-                            <li>Faster Delivery - Small team = quick decisions</li>
-                            <li>Full Attention - Your project isn't competing with 20 others</li>
+                            <li>Weekly check-ins for clarity</li>
+                            <li>Jargon-free explanations</li>
+                            <li>Direct access to developers</li>
+                            <li>Transparent pricing</li>
                         </ul>
                     </div>
+                    
                     <div class="about-card">
-                        <h2>Our Promise</h2>
+                        <h3>Built to Last</h3>
+                        <p class="value-desc">Code that runs clean and keeps going.</p>
                         <ul class="about-features">
-                            <li>Weekly Updates - See your progress</li>
-                            <li>Clean Code - Built to last</li>
-                            <li>Clear Communication - No tech jargon</li>
-                            <li>Honest Timeline - We don't overpromise</li>
+                            <li>Scalable architecture</li>
+                            <li>Performance-focused design</li>
+                            <li>Comprehensive testing</li>
+                            <li>Clean, maintainable code</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="about-card">
+                        <h3>Your Partner</h3>
+                        <p class="value-desc">We're in it with you, from start to finish.</p>
+                        <ul class="about-features">
+                            <li>24/7 support when needed</li>
+                            <li>Proactive problem solving</li>
+                            <li>Flexible to your changing needs</li>
+                            <li>Long-term maintenance options</li>
                         </ul>
                     </div>
                 </div>
@@ -84,19 +220,25 @@
 
         <section class="values-section grain-overlay">
             <div class="container">
-                <h2 class="gradient-text">How We're Different</h2>
+                <div class="section-header">
+                    <h2 class="gradient-text">Our Edge</h2>
+                    <p class="section-lead">We do tech our way—clean, quick, and yours.</p>
+                </div>
+                
                 <div class="values-grid">
                     <div class="value-card">
-                        <h3>No Fluff</h3>
-                        <p>Skip the agency politics. Work directly with your developer.</p>
+                        <h3>No Noise</h3>
+                        <p>Skip the jargon—we talk straight.</p>
                     </div>
+                    
                     <div class="value-card">
-                        <h3>Full Focus</h3>
-                        <p>We take on few clients. Your project gets proper attention.</p>
+                        <h3>All In</h3>
+                        <p>Your project gets our full focus.</p>
                     </div>
+                    
                     <div class="value-card">
-                        <h3>Real Talk</h3>
-                        <p>Honest updates. Clear timelines. No surprises.</p>
+                        <h3>Built Clean</h3>
+                        <p>Every line coded to run smooth.</p>
                     </div>
                 </div>
             </div>
@@ -104,8 +246,8 @@
 
         <section class="cta-section">
             <div class="container">
-                <h2>Want to Work Together?</h2>
-                <p>Get Timeline & Price → 10-Min Chat</p>
+                <h2>Ready to Build?</h2>
+                <p>Let's make your tech hum—10-min chat.</p>
                 <a href="/contact.html" class="button primary">Start Now →</a>
             </div>
         </section>
@@ -118,12 +260,8 @@
     </footer>
 
     <script src="js/main.js"></script>
-    <!-- Add this before closing body tag in all HTML files -->
-    <script type="module">
-        import { PageTransition } from '/js/transition.js';
-        document.addEventListener('DOMContentLoaded', () => {
-            window.pageTransition = new PageTransition();
-        });
-    </script>
+    <script src="js/theme.js"></script>
+    <!-- Replace transition script with standard page initialization -->
+    <script src="js/page-init.js"></script>
 </body>
 </html>

@@ -3,40 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AI Development Agency - We build AI-powered software">
     
-    <!-- Add these before other resources -->
+    <!-- Primary Meta Tags -->
+    <title>Snow Tech Agency | AI & Web Development Experts</title>
+    <meta name="title" content="Snow Tech Agency | AI & Web Development Experts">
+    <meta name="description" content="Expert AI development and web app solutions. We build cutting-edge software that scales your business—from AI tools to custom web applications. Get started with a 10-min chat.">
+    <meta name="keywords" content="AI development, web apps, custom software, tech agency, website development">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://snowtech.agency/">
+    <meta property="og:title" content="Snow Tech Agency | AI & Web Development Experts">
+    <meta property="og:description" content="Expert AI development and web app solutions. We build cutting-edge software that scales your business—from AI tools to custom web applications.">
+    <meta property="og:image" content="https://snowtech.agency/assets/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://snowtech.agency/">
+    <meta property="twitter:title" content="Snow Tech Agency | AI & Web Development Experts">
+    <meta property="twitter:description" content="Expert AI development and web app solutions. We build cutting-edge software that scales your business—from AI tools to custom web applications.">
+    <meta property="twitter:image" content="https://snowtech.agency/assets/images/og-image.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://snowtech.agency/">
+    
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Snow Tech Agency",
+      "url": "https://snowtech.agency",
+      "logo": "https://snowtech.agency/assets/images/logo.png",
+      "description": "Expert AI development and web app solutions. We build cutting-edge software that scales your business.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "US"
+      },
+      "sameAs": [
+        "https://olivesays.com"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "name": "Web App Development",
+        "description": "Custom web applications that scale your business"
+      }
+    }
+    </script>
+    
+    <!-- Early theme detection to prevent flash -->
+    <script>
+        // Apply theme immediately to prevent flash during page transitions
+        (function() {
+            try {
+                // First check if user has a saved preference
+                const savedTheme = localStorage.getItem('theme');
+                
+                if (savedTheme) {
+                    // If there's a saved preference, use it
+                    document.documentElement.setAttribute('data-theme', savedTheme);
+                    console.log('Early detection: using saved theme:', savedTheme);
+                } else {
+                    // Otherwise use system preference
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    const systemTheme = prefersDark ? 'dark' : 'light';
+                    document.documentElement.setAttribute('data-theme', systemTheme);
+                    console.log('Early detection: using system theme:', systemTheme);
+                }
+            } catch (e) {
+                // Fallback if localStorage is unavailable
+                console.error('Theme initialization error:', e);
+            }
+        })();
+    </script>
+    
+    <!-- Performance optimizations -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://unpkg.com">
     
     <!-- Preload critical assets -->
-    <link rel="preload" href="/assets/globe-texture.png" as="image">
     <link rel="preload" href="/assets/noise.svg" as="image">
     
     <!-- Optimize font loading -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
     
-    <!-- Add browser hints -->
+    <!-- Browser hints -->
     <meta http-equiv="x-dns-prefetch-control" content="on">
-    <link rel="modulepreload" href="https://unpkg.com/three@0.132.2/build/three.module.js">
     
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/design-system.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
-    
-    <title>Snow Tech Agency | AI Development</title>
-
-    <script type="importmap">
-    {
-        "imports": {
-            "three": "https://unpkg.com/three@0.132.2/build/three.module.js",
-            "three/": "https://unpkg.com/three@0.132.2/"
-        }
-    }
-    </script>
-    <script type="module" src="js/globe.js"></script>
+    <!-- CSS files -->
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <header class="site-header">
@@ -56,15 +113,33 @@
                     <li><a href="/about.html">About</a></li>
                     <li><a href="/contact.html" class="cta-button">Contact Us</a></li>
                 </ul>
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
             </nav>
         </div>
     </header>
 
     <main>
+        <!-- 
+        Removed visual elements section
         <div class="hero-visual">
             <div class="globe-container">
-                <!-- Globe will render here -->
             </div>
+            
             <div class="hero-stat">
                 <h2 class="adaptive-text">
                     ~<span id="companies-counter">0</span> million companies worldwide leverage AI
@@ -72,12 +147,13 @@
                 <p class="adaptive-text" style="color: #fff; font-weight: bold;">Are you falling behind?</p>
             </div>
         </div>
+        -->
 
-        <section class="hero">
+        <section class="hero grain-overlay">
             <div class="container hero-container">
                 <div class="hero-content">
-                    <h1 class="gradient-text">We Build AI Features Fast</h1>
-                    <p class="lead">Your AI product needs building. We ship in weeks, not months.</p>
+                    <h1 class="gradient-text">Web Apps, AI Tools, Websites—Built to Win.</h1>
+                    <p class="lead">We turn your idea into its sharpest, strongest self—end to end.</p>
                     
                     <div class="hero-form">
                         <form class="email-capture-form" id="heroForm" action="javascript:void(0);">
@@ -85,8 +161,9 @@
                                 <input 
                                     type="email" 
                                     name="email" 
-                                    placeholder="Enter your e-mail for timeline & quote"
+                                    placeholder="Enter your e-mail..."
                                     required
+                                    style="border-radius: 0 !important;"
                                 >
                                 <button type="submit" class="button primary">
                                     Start Now →
@@ -96,6 +173,23 @@
                         </form>
                     </div>
                 </div>
+
+                <!-- Hero Case Study Preview -->
+                <div class="hero-case-preview">
+                    <div class="hero-case-image">
+                        <img src="/assets/images/case-studies/olivesays-chat.png" alt="OliveSays AI Website Analysis Tool Interface - Conversational Website Evaluation" loading="lazy">
+                    </div>
+                    <div class="hero-case-content">
+                        <span class="case-study-tag">Latest Case Study</span>
+                        <h3>OliveSays: AI Website Evaluator</h3>
+                        <p>Conversational website analysis that delivers sharp insights on design, performance, and SEO.</p>
+                        <a href="/case-studies/olivesays.html" class="button primary">Read Case Study →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-background">
+                <div class="gradient-orb primary"></div>
+                <div class="gradient-orb secondary"></div>
             </div>
         </section>
 
@@ -103,142 +197,139 @@
             <div class="container">
                 <div class="section-header">
                     <h2 class="gradient-text">What We Build</h2>
-                    <p class="section-lead">AI Features. Full Products. Fast Delivery.</p>
+                    <p class="section-lead">We craft tools and sites that hit hard and last long—your win, built our way.</p>
                 </div>
                 <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">⚡</div>
-                        <h3>Add AI Features</h3>
-                        <p>Need GPT or custom AI in your product? We integrate it.</p>
+                    <div class="feature-card" style="margin-top: 5.5rem;">
+                        <div class="feature-icon">
+                            <img src="assets/images/graphics/mouse-cursor.png" alt="Custom Web Application Development Services Icon" loading="lazy">
+                        </div>
+                        <h3>Web Apps</h3>
+                        <p>Functional apps that scale your business.</p>
                         <ul class="feature-details">
-                            <li>GPT/LLM Integration</li>
-                            <li>Clean API Design</li>
-                            <li>Custom AI Systems</li>
+                            <li>Custom Dashboards: Control your data, your way.</li>
+                            <li>Workflow Tools: Speed up what matters.</li>
+                            <li>Scalable Backends: Grow without breaking.</li>
+                            <li>User-Friendly Fronts: Looks good, works better.</li>
                         </ul>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🛠️</div>
-                        <h3>Build Complete Products</h3>
-                        <p>From UI to API, we build the whole thing.</p>
+                    <div class="feature-card" style="margin-top: 5.5rem;">
+                        <div class="feature-icon">
+                            <img src="assets/images/graphics/robot.png" alt="AI and Machine Learning Development Services Icon" loading="lazy">
+                        </div>
+                        <h3>AI Tools</h3>
+                        <p>Smart solutions that solve real problems.</p>
                         <ul class="feature-details">
-                            <li>Sharp Frontend</li>
-                            <li>Solid Backend</li>
-                            <li>Smart Architecture</li>
+                            <li>Automation Bots: Cut the grunt work.</li>
+                            <li>Data Crunchers: Insights, not guesswork.</li>
+                            <li>Custom Models: AI built for you.</li>
+                            <li>Fast Integration: Plug in, power up.</li>
                         </ul>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">⚙️</div>
-                        <h3>Keep It Running</h3>
-                        <p>We maintain. You focus on growth.</p>
+                    <div class="feature-card" style="margin-top: 5.5rem;">
+                        <div class="feature-icon">
+                            <img src="assets/images/graphics/laptop.png" alt="Professional Website Development Services Icon" loading="lazy">
+                        </div>
+                        <h3>Websites</h3>
+                        <p>Fast, sharp sites that work.</p>
                         <ul class="feature-details">
-                            <li>New Features</li>
-                            <li>Speed Optimization</li>
-                            <li>Tech Support</li>
+                            <li>Landing Pages: Grab attention, hold it.</li>
+                            <li>E-Commerce: Sell more, crash less.</li>
+                            <li>Portfolios: Show off, stand out.</li>
+                            <li>Speed Boosts: Load times that win.</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card" style="margin-top: 5.5rem;">
+                        <div class="feature-icon">
+                            <img src="assets/images/graphics/gear.png" alt="Website Maintenance and Support Services Icon" loading="lazy">
+                        </div>
+                        <h3>Maintenance</h3>
+                        <p>Keep it running, no crashes.</p>
+                        <ul class="feature-details">
+                            <li>Bug Fixes: Problems gone fast.</li>
+                            <li>Updates: Stay current, stay safe.</li>
+                            <li>Monitoring: We watch, you relax.</li>
+                            <li>Uptime Locks: Always on, always strong.</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="tech-focus">
+        <section class="case-study">
             <div class="container">
-                <h2>Your AI Problems. Gone.</h2>
-                <p class="section-lead">Pick your pain point. We'll fix it.</p>
-                
-                <div class="challenge-categories">
-                    <!-- Integration Category -->
-                    <div class="challenge-category">
-                        <h3 class="category-title">Integration</h3>
-                        <div class="challenge-grid">
-                            <div class="tech-item">
-                                <h4>GPT giving you headaches?</h4>
-                                <p>We handle the complex LLM stuff.</p>
-                            </div>
-                            <div class="tech-item">
-                                <h4>API costs too high?</h4>
-                                <p>We optimize your token usage.</p>
-                            </div>
-                            <div class="tech-item">
-                                <h4>Data pipeline broken?</h4>
-                                <p>We fix your AI data flow.</p>
-                            </div>
-                        </div>
+                <div class="section-header">
+                    <h2 class="gradient-text">Our Latest Win</h2>
+                    <p class="section-lead">We build sharp, strong solutions—here's one in action.</p>
+                </div>
+                <div class="case-study-card">
+                    <div class="case-study-image">
+                        <img src="/assets/images/case-studies/olivesays-chatbox.png" alt="OliveSays AI Website Analyzer - Real-time Website Analysis Interface" loading="lazy">
                     </div>
-
-                    <!-- Performance Category -->
-                    <div class="challenge-category">
-                        <h3 class="category-title">Performance</h3>
-                        <div class="challenge-grid">
-                            <div class="tech-item">
-                                <h4>Features too slow?</h4>
-                                <p>We speed up response times.</p>
-                            </div>
-                            <div class="tech-item">
-                                <h4>Burning money on API calls?</h4>
-                                <p>We cut your AI costs.</p>
-                            </div>
-                            <div class="tech-item">
-                                <h4>Can't handle the load?</h4>
-                                <p>We make it scale.</p>
-                            </div>
-                        </div>
+                    <div class="case-study-preview-content">
+                        <span class="case-study-tag">Web App</span>
+                        <span class="case-study-tag">AI Integration</span>
+                        <h3>OliveSays: Snow Tech's AI Website Evaluator</h3>
+                        <p>Built in 3 months with React, TypeScript, and OpenAI, OliveSays delivers conversational website analysis with sharp insights on aesthetics, performance, and SEO.</p>
+                        <a href="/case-studies/olivesays.html" class="button primary">
+                            Read Case Study →
+                        </a>
                     </div>
+                </div>
+            </div>
+        </section>
 
-                    <!-- Development Category -->
-                    <div class="challenge-category">
-                        <h3 class="category-title">Development</h3>
-                        <div class="challenge-grid">
-                            <div class="tech-item">
-                                <h4>Stuck in development hell?</h4>
-                                <p>We ship in weeks.</p>
-                            </div>
-                            <div class="tech-item">
-                                <h4>Code a mess?</h4>
-                                <p>We clean it up.</p>
-                            </div>
-                            <div class="tech-item">
-                                <h4>Features piling up?</h4>
-                                <p>We clear your backlog.</p>
-                            </div>
+        <section class="why-us">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="gradient-text">Why We're Your Pick</h2>
+                    <p class="section-lead">We build and maintain right—every time.</p>
+                </div>
+                <div class="why-us-grid">
+                    <div class="why-us-card">
+                        <div class="why-us-icon">
+                            <img src="assets/images/graphics/anvil.png" alt="Quality Software Development Icon - Built Right Approach" loading="lazy">
                         </div>
+                        <h3>Built Right</h3>
+                        <p>No shortcuts, just solid code that holds up.</p>
                     </div>
-
-                    <!-- Infrastructure Category -->
-                    <div class="challenge-category">
-                        <h3 class="category-title">Infrastructure</h3>
-                        <div class="challenge-grid">
-                            <div class="tech-item">
-                                <h4>Need better architecture?</h4>
-                                <p>We build it right.</p>
-                            </div>
-                            <div class="tech-item">
-                                <h4>Security concerns?</h4>
-                                <p>We lock it down.</p>
-                            </div>
-                            <div class="tech-item">
-                                <h4>Can't track performance?</h4>
-                                <p>We make it visible.</p>
-                            </div>
+                    <div class="why-us-card">
+                        <div class="why-us-icon">
+                            <img src="assets/images/graphics/lightbulb.png" alt="Innovative Solutions Icon - Results That Last" loading="lazy">
                         </div>
+                        <h3>Results That Stick</h3>
+                        <p>Projects that hit hard and keep delivering.</p>
                     </div>
-
-                    <!-- Resource Category -->
-                    <div class="challenge-category">
-                        <h3 class="category-title">Resources</h3>
-                        <div class="challenge-grid">
-                            <div class="tech-item">
-                                <h4>Missing AI expertise?</h4>
-                                <p>We fill the gaps.</p>
-                            </div>
-                            <div class="tech-item">
-                                <h4>Need better docs?</h4>
-                                <p>We make it clear.</p>
-                            </div>
-                            <div class="tech-item">
-                                <h4>Want reliable support?</h4>
-                                <p>We're here to stay.</p>
-                            </div>
+                    <div class="why-us-card">
+                        <div class="why-us-icon">
+                            <img src="assets/images/graphics/handshake.png" alt="Client Partnership Icon - Long-term Support and Collaboration" loading="lazy">
                         </div>
+                        <h3>With You All the Way</h3>
+                        <p>From kickoff to upkeep, we're in it.</p>
+                    </div>
+                </div>
+                <div class="why-us-cta">
+                    <a href="/contact.html" class="button primary">Let's Talk →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stacked reviews section -->
+        <section class="reviews-parallax">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="gradient-text">Client Success Stories</h2>
+                    <p class="section-lead">Real feedback from clients who trusted us with their vision.</p>
+                </div>
+                <div class="stack-container">
+                    <div class="review-card-stacked">
+                        <img src="assets/images/UpWork Reviews/1.jpg" alt="5-Star Client Review on Web Development Project" loading="lazy">
+                    </div>
+                    <div class="review-card-stacked">
+                        <img src="assets/images/UpWork Reviews/2.jpg" alt="Client Testimonial for AI Development Services" loading="lazy">
+                    </div>
+                    <div class="review-card-stacked">
+                        <img src="assets/images/UpWork Reviews/3.jpg" alt="Positive Feedback from Website Development Client" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -248,7 +339,7 @@
             <div class="container">
                 <h2>Ready to Ship?</h2>
                 <p>Get Timeline & Price → 10-Min Chat</p>
-                <a href="/contact.html" class="button primary" style="border: none;">Start Now →</a>
+                <a href="/contact.html" class="button primary" style="border: none;">Get in Touch →</a>
             </div>
         </section>
     </main>
@@ -260,12 +351,8 @@
     </footer>
 
     <script src="js/main.js"></script>
-    <!-- Add this before closing body tag in all HTML files -->
-    <script type="module">
-        import { PageTransition } from '/js/transition.js';
-        document.addEventListener('DOMContentLoaded', () => {
-            window.pageTransition = new PageTransition();
-        });
-    </script>
+    <script src="js/theme.js"></script>
+    <!-- Replace transition script with standard page initialization -->
+    <script src="js/page-init.js"></script>
 </body>
 </html> 
