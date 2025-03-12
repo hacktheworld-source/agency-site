@@ -15,6 +15,7 @@ $timestamp = date('Y-m-d H:i:s');
 file_put_contents($log_file, "$timestamp - Form submission received\n", FILE_APPEND);
 
 // Load SMTP settings from config file
+define('SECURE_ACCESS', true);
 $smtp_settings = @include('smtp-config.php');
 
 if (!$smtp_settings) {
