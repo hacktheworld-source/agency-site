@@ -7,6 +7,20 @@ $log_file = 'form_submissions.log';
 $timestamp = date('Y-m-d H:i:s');
 file_put_contents($log_file, "$timestamp - Form submission received\n", FILE_APPEND);
 
+// Generate a unique ID for this submission
+$requestId = md5(uniqid(mt_rand(), true));
+$lockFile = "submission_$requestId.lock";
+
+// Check if this is a duplicate request (server might execute the script multiple times)
+if (file_exists($lockFile)) {
+    file_put_contents($log_file, "$timestamp - Duplicate request detected, aborting\n", FILE_APPEND);
+    echo json_encode(['success' => true, 'message' => 'Your message has been sent! We\'ll get back to you soon.']);
+    exit;
+}
+
+// Create lock file to prevent duplicate processing
+touch($lockFile);
+
 // Get and sanitize form data
 $name = isset($_POST['name']) ? filter_var(trim($_POST['name']), FILTER_SANITIZE_STRING) : '';
 $email = isset($_POST['email']) ? filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL) : '';
@@ -26,6 +40,7 @@ if (!empty($errors)) {
     file_put_contents($log_file, "$timestamp - Validation errors: " . implode(', ', $errors) . "\n", FILE_APPEND);
     http_response_code(400);
     echo json_encode(['success' => false, 'message' => 'Please correct the following: ' . implode(', ', $errors)]);
+    unlink($lockFile); // Remove lock file
     exit;
 }
 
@@ -33,12 +48,12 @@ if (!empty($errors)) {
 $to = 'hello@snowtech.agency';
 $subject = "New Project Inquiry from $name";
 
-// SIMPLIFIED HEADERS - only what's absolutely needed
+// Simple email approach with plain text
 $headers = "From: website@snowtech.agency\r\n";
 $headers .= "Reply-To: $email\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
-// Create PLAIN TEXT email (no HTML) to avoid MIME issues
+// Create plain text email
 $emailMessage = "New Project Inquiry\n";
 $emailMessage .= "====================\n\n";
 $emailMessage .= "Name: $name\n";
@@ -54,6 +69,9 @@ file_put_contents($log_file, "$timestamp - Attempting to send email via mail() f
 
 // Send email using PHP's mail() function
 $mailSent = mail($to, $subject, $emailMessage, $headers);
+
+// Clean up lock file
+unlink($lockFile);
 
 // Return result
 if ($mailSent) {
