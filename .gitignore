@@ -50,3 +50,7 @@ error_log
 
 # Mail
 mail.php
+
+# SMTP Configuration with credentials
+smtp-config.php
+form_submissions.log
