@@ -21,7 +21,12 @@ debug.log
 
 # Dependencies (if you add any in the future)
 node_modules/
-vendor/
+# Allow PHPMailer files
+!vendor/PHPMailer/
+!vendor/PHPMailer/src/
+!vendor/PHPMailer/src/Exception.php
+!vendor/PHPMailer/src/PHPMailer.php
+!vendor/PHPMailer/src/SMTP.php
 
 # Temporary files
 *.tmp
