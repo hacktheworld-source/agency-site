@@ -330,49 +330,27 @@
                 method: 'POST',
                 body: formData
             })
-            .then(response => {
-                // Check if the response is JSON
-                const contentType = response.headers.get('content-type');
-                if (contentType && contentType.includes('application/json')) {
-                    return response.json().then(data => {
-                        return { isJson: true, data: data };
-                    });
-                } else {
-                    // If not JSON, get the text content and log it
-                    return response.text().then(text => {
-                        console.error('Server returned non-JSON response:');
-                        console.error(text);
-                        return { isJson: false, text: text };
-                    });
-                }
-            })
-            .then(result => {
+            .then(response => response.json())
+            .then(data => {
                 // Hide loading state
                 submitButton.classList.remove('loading');
                 
-                if (result.isJson) {
-                    // Process JSON response as before
-                    if (result.data.success) {
-                        // Show success message
-                        document.getElementById('successMessage').style.display = 'flex';
-                        // Reset form
-                        document.getElementById('contactForm').reset();
-                    } else {
-                        // Show error message
-                        alert(result.data.message || 'There was an error sending your message. Please try again.');
-                    }
+                if (data.success) {
+                    // Show success message
+                    document.getElementById('successMessage').style.display = 'flex';
+                    // Reset form
+                    document.getElementById('contactForm').reset();
                 } else {
-                    // Handle non-JSON response
-                    alert('Server returned unexpected content. Please try again or contact us directly. Check console for details.');
+                    // Show error message
+                    alert(data.message || 'There was an error sending your message. Please try again.');
                 }
             })
             .catch(error => {
                 // Hide loading state
                 submitButton.classList.remove('loading');
-                
-                // Show detailed error message
-                console.error('Form submission error:', error);
-                alert('There was an error sending your message. Please try again or contact us directly at hello@snowtech.agency');
+                // Show error message
+                alert('There was an error sending your message. Please try again or contact us directly.');
+                console.error('Error:', error);
             });
         });
         
