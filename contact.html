@@ -159,7 +159,7 @@
             <div class="container">
                 <div class="contact-grid">
                     <div class="contact-form-wrapper">
-                        <form class="contact-form" action="simple-contact.php" method="POST" id="contactForm">
+                        <form class="contact-form" action="contact-handler.php" method="POST" id="contactForm">
                             <div class="form-group">
                                 <label for="name">Your Name</label>
                                 <input 
@@ -302,6 +302,50 @@
     <script>
         // Add event listener for close button
         document.querySelector('#successMessage button').addEventListener('click', closeSuccessMessage);
+        
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            const submitButton = this.querySelector('button[type="submit"]');
+            submitButton.classList.add('loading');
+            
+            // Get form data
+            const formData = new FormData(this);
+            
+            // Send AJAX request
+            fetch('contact-handler.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Hide loading state
+                submitButton.classList.remove('loading');
+                
+                if (data.success) {
+                    // Show success message
+                    document.getElementById('successMessage').style.display = 'flex';
+                    // Reset form
+                    document.getElementById('contactForm').reset();
+                } else {
+                    // Show error message
+                    alert(data.message || 'There was an error sending your message. Please try again.');
+                }
+            })
+            .catch(error => {
+                // Hide loading state
+                submitButton.classList.remove('loading');
+                // Show error message
+                alert('There was an error sending your message. Please try again or contact us directly.');
+                console.error('Error:', error);
+            });
+        });
+        
+        function closeSuccessMessage() {
+            document.getElementById('successMessage').style.display = 'none';
+        }
     </script>
 </body>
 </html>
