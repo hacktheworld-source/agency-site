@@ -71,3 +71,9 @@ FileETag MTime Size
 <IfModule mod_headers.c>
     Header set Connection keep-alive
 </IfModule>
+
+# Protect sensitive files
+<FilesMatch "smtp-config\.php$">
+  Order Allow,Deny
+  Deny from all
+</FilesMatch>
