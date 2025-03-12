@@ -303,9 +303,26 @@
         // Add event listener for close button
         document.querySelector('#successMessage button').addEventListener('click', closeSuccessMessage);
         
-        // Form submission handler
+        // Prevent multiple submissions flag
+        let isSubmitting = false;
+        
+        // Remove any existing handlers and add our single handler
+        const contactForm = document.getElementById('contactForm');
+        const clonedForm = contactForm.cloneNode(true);
+        contactForm.parentNode.replaceChild(clonedForm, contactForm);
+        
+        // Form submission handler - only attach once
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
+            
+            // Prevent multiple submissions
+            if (isSubmitting) {
+                console.log('Form already submitting, preventing duplicate submission');
+                return false;
+            }
+            
+            // Set submitting flag
+            isSubmitting = true;
             
             // Show loading state
             const submitButton = this.querySelector('button[type="submit"]');
@@ -323,6 +340,7 @@
             .then(data => {
                 // Hide loading state
                 submitButton.classList.remove('loading');
+                isSubmitting = false;
                 
                 if (data.success) {
                     // Show success message
@@ -337,6 +355,8 @@
             .catch(error => {
                 // Hide loading state
                 submitButton.classList.remove('loading');
+                isSubmitting = false;
+                
                 // Show error message
                 alert('There was an error sending your message. Please try again or contact us directly.');
                 console.error('Error:', error);
