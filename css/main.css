@@ -31,7 +31,7 @@
  * Add any additional global styles below
  */
 
-/* Components */
-@import 'forms.css';
+/* These component files are no longer needed as they're included in components.css */
+/* @import 'forms.css';
 @import 'buttons.css';
-@import 'cards.css'; 
+@import 'cards.css'; */ 
