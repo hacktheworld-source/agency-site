@@ -326,40 +326,11 @@
             formData.append('client_timestamp', new Date().toISOString());
             
             // Send AJAX request
-            fetch('contact-handler.php', {
+            fetch('https://snowtech.agency/contact-handler.php', {
                 method: 'POST',
                 body: formData
             })
-            .then(response => {
-                // First, check the content type
-                const contentType = response.headers.get('content-type');
-                
-                // Store the response status for logging
-                const status = response.status;
-                
-                // Clone the response so we can both read the text and try to parse as JSON
-                return response.text().then(text => {
-                    // Log response info for debugging
-                    console.log(`Response status: ${status}, Content-Type: ${contentType}`);
-                    
-                    try {
-                        // Try to parse as JSON
-                        if (contentType && contentType.includes('application/json')) {
-                            return JSON.parse(text);
-                        } else {
-                            // Log the HTML/text response for debugging
-                            console.error('Server returned non-JSON response:');
-                            console.log(text);
-                            throw new Error('Server returned non-JSON response');
-                        }
-                    } catch (error) {
-                        console.error('Error parsing response:', error);
-                        // Log the actual response content for debugging
-                        console.log('Raw response:', text);
-                        throw error;
-                    }
-                });
-            })
+            .then(response => response.json())
             .then(data => {
                 // Hide loading state
                 submitButton.classList.remove('loading');
@@ -377,12 +348,9 @@
             .catch(error => {
                 // Hide loading state
                 submitButton.classList.remove('loading');
-                
-                // Show more informative error message
-                console.error('Form submission error:', error);
-                
-                // Show user-friendly error
-                alert('There was an error processing your submission. Please check the console for details or contact us directly at hello@snowtech.agency.');
+                // Show error message
+                alert('There was an error sending your message. Please try again or contact us directly.');
+                console.error('Error:', error);
             });
         });
         
