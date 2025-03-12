@@ -300,29 +300,19 @@
     <!-- Replace transition script with standard page initialization -->
     <script src="js/page-init.js"></script>
     <script>
+        // Add a counter to track form submissions
+        let submitCount = 0;
+        
         // Add event listener for close button
         document.querySelector('#successMessage button').addEventListener('click', closeSuccessMessage);
         
-        // Prevent multiple submissions flag
-        let isSubmitting = false;
-        
-        // Remove any existing handlers and add our single handler
-        const contactForm = document.getElementById('contactForm');
-        const clonedForm = contactForm.cloneNode(true);
-        contactForm.parentNode.replaceChild(clonedForm, contactForm);
-        
-        // Form submission handler - only attach once
+        // Form submission handler
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Prevent multiple submissions
-            if (isSubmitting) {
-                console.log('Form already submitting, preventing duplicate submission');
-                return false;
-            }
-            
-            // Set submitting flag
-            isSubmitting = true;
+            // Track submission count
+            submitCount++;
+            console.log('Submit attempt #' + submitCount + ' at ' + new Date().toISOString());
             
             // Show loading state
             const submitButton = this.querySelector('button[type="submit"]');
@@ -330,6 +320,10 @@
             
             // Get form data
             const formData = new FormData(this);
+            
+            // Add submission count to form data for tracking
+            formData.append('submit_count', submitCount);
+            formData.append('client_timestamp', new Date().toISOString());
             
             // Send AJAX request
             fetch('contact-handler.php', {
@@ -340,7 +334,6 @@
             .then(data => {
                 // Hide loading state
                 submitButton.classList.remove('loading');
-                isSubmitting = false;
                 
                 if (data.success) {
                     // Show success message
@@ -355,8 +348,6 @@
             .catch(error => {
                 // Hide loading state
                 submitButton.classList.remove('loading');
-                isSubmitting = false;
-                
                 // Show error message
                 alert('There was an error sending your message. Please try again or contact us directly.');
                 console.error('Error:', error);
