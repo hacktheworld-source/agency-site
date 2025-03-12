@@ -45,41 +45,22 @@ $htmlMessage = '
 <!DOCTYPE html>
 <html>
 <head>
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-        .container { max-width: 600px; margin: 0 auto; }
-        .header { background: #0066FF; color: white; padding: 20px; text-align: center; }
-        .content { padding: 20px; }
-        .field { margin-bottom: 15px; }
-        .label { font-weight: bold; }
-        .footer { font-size: 12px; color: #777; margin-top: 30px; border-top: 1px solid #eee; padding-top: 10px; }
-    </style>
+    <title>New Project Inquiry</title>
 </head>
-<body>
-    <div class="container">
-        <div class="header">
+<body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+    <div style="max-width: 600px; margin: 0 auto;">
+        <div style="background: #0066FF; color: white; padding: 20px; text-align: center;">
             <h1>New Project Inquiry</h1>
         </div>
-        <div class="content">
-            <div class="field">
-                <span class="label">Name:</span> ' . htmlspecialchars($name) . '
-            </div>
-            <div class="field">
-                <span class="label">Email:</span> ' . htmlspecialchars($email) . '
-            </div>
-            <div class="field">
-                <span class="label">Project Type:</span> ' . htmlspecialchars($projectType) . '
-            </div>
-            <div class="field">
-                <span class="label">Timeline:</span> ' . htmlspecialchars($timeline) . '
-            </div>
-            <div class="field">
-                <span class="label">Message:</span><br>
-                ' . nl2br(htmlspecialchars($message)) . '
-            </div>
-            <div class="footer">
-                Sent from Snow Tech Agency website contact form
-            </div>
+        <div style="padding: 20px;">
+            <p><strong>Name:</strong> ' . htmlspecialchars($name) . '</p>
+            <p><strong>Email:</strong> ' . htmlspecialchars($email) . '</p>
+            <p><strong>Project Type:</strong> ' . htmlspecialchars($projectType) . '</p>
+            <p><strong>Timeline:</strong> ' . htmlspecialchars($timeline) . '</p>
+            <p><strong>Message:</strong><br>' . nl2br(htmlspecialchars($message)) . '</p>
+        </div>
+        <div style="font-size: 12px; color: #777; margin-top: 30px; border-top: 1px solid #eee; padding-top: 10px;">
+            Sent from Snow Tech Agency website contact form
         </div>
     </div>
 </body>
