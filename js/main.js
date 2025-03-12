@@ -91,13 +91,28 @@ if (heroForm) {
     });
 }
 
-// Contact form handler
+// Contact form handler - CONSOLIDATED SINGLE HANDLER
 if (contactForm) {
     debugAlert('Contact form found');
+    let submitCount = 0;
+    
+    // Add event listener for success message close button
+    if (successMessage) {
+        const closeButton = successMessage.querySelector('.button');
+        if (closeButton) {
+            closeButton.addEventListener('click', () => {
+                successMessage.style.display = 'none';
+            });
+        }
+    }
     
     contactForm.addEventListener('submit', async (e) => {
         debugAlert('Contact form submitted');
         e.preventDefault();
+        
+        // Track submission count
+        submitCount++;
+        console.log('Submit attempt #' + submitCount + ' at ' + new Date().toISOString());
 
         if (!contactForm.checkValidity()) {
             debugAlert('Form validation failed');
@@ -105,15 +120,20 @@ if (contactForm) {
         }
         
         const submitButton = contactForm.querySelector('button[type="submit"]');
-        const originalText = submitButton.textContent;
-        submitButton.disabled = true;
-        submitButton.textContent = 'Sending...';
-
+        submitButton.classList.add('loading');
+        
+        // Get form data
+        const formData = new FormData(contactForm);
+        
+        // Add submission count to form data for tracking
+        formData.append('submit_count', submitCount);
+        formData.append('client_timestamp', new Date().toISOString());
+        
         try {
-            const formData = new FormData(contactForm);
             debugAlert('Sending form data');
-
-            const response = await fetch(contactForm.action, {
+            
+            // EXPLICITLY use contact-handler.php instead of form action
+            const response = await fetch('contact-handler.php', {
                 method: 'POST',
                 body: formData,
                 headers: {
@@ -132,20 +152,21 @@ if (contactForm) {
             debugAlert('Response: ' + JSON.stringify(result));
 
             if (result.success) {
-                showSuccessMessage("Message sent! We'll respond within 1 hour.");
+                // Show success message
+                if (successMessage) {
+                    successMessage.style.display = 'flex';
+                }
                 contactForm.reset();
-                // Reset button state after success
-                submitButton.disabled = false;
-                submitButton.textContent = originalText;
             } else {
                 throw new Error(result.message || 'Server indicated failure');
             }
         } catch (error) {
             debugAlert('Error: ' + error.message);
-            showErrorMessage(`Submission failed: ${error.message}`);
-            // Reset button state on error
-            submitButton.disabled = false;
-            submitButton.textContent = originalText;
+            alert(`Error: ${error.message || 'There was an error sending your message. Please try again or contact us directly.'}`);
+            console.error('Error:', error);
+        } finally {
+            // Always reset button state
+            submitButton.classList.remove('loading');
         }
     });
 }
@@ -326,19 +347,6 @@ if (isMobile) {
     });
 }
 
-// Optimize form submission for mobile
-if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
-        if (isMobile) {
-            // Disable form while submitting on mobile
-            const submitButton = contactForm.querySelector('button[type="submit"]');
-            submitButton.disabled = true;
-            submitButton.textContent = 'Sending...';
-        }
-        // ... rest of form submission code ...
-    });
-}
-
 // Add touch event handling for mobile menu
 if (isMobile && mobileMenuToggle) {
     let touchStartX = 0;
@@ -386,58 +394,3 @@ function toggleMobileMenu(isOpen) {
 // Remove any mobile-specific form handlers
 const mobileHandlers = document.querySelectorAll('[data-mobile-handler]');
 mobileHandlers.forEach(handler => handler.remove());
-
-// At the top of the file
-window.initializeHandlers = function() {
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const submitButton = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitButton.textContent;
-            submitButton.disabled = true;
-            submitButton.textContent = 'Sending...';
-
-            try {
-                const formData = new FormData(contactForm);
-                const response = await fetch(contactForm.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json',
-                        'X-Requested-With': 'XMLHttpRequest'
-                    }
-                });
-
-                const result = await response.json();
-
-                if (result.success) {
-                    // Show success message modal
-                    const successMessage = document.getElementById('successMessage');
-                    if (successMessage) {
-                        successMessage.classList.add('active');
-                        const closeButton = successMessage.querySelector('.button');
-                        if (closeButton) {
-                            closeButton.addEventListener('click', () => {
-                                successMessage.classList.remove('active');
-                            });
-                        }
-                    }
-                    contactForm.reset();
-                } else {
-                    throw new Error(result.message || 'Submission failed');
-                }
-            } catch (error) {
-                alert(`Error: ${error.message}`);
-            } finally {
-                submitButton.disabled = false;
-                submitButton.textContent = originalText;
-            }
-        });
-    }
-
-    // Add any other handlers you need to initialize here
-};
-
-// Call on initial load
-document.addEventListener('DOMContentLoaded', window.initializeHandlers);
