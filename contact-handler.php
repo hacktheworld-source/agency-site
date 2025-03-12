@@ -33,44 +33,27 @@ if (!empty($errors)) {
 $to = 'hello@snowtech.agency';
 $subject = "New Project Inquiry from $name";
 
-// Set important headers for better deliverability
-$headers = "From: Snow Tech Website <website@snowtech.agency>\r\n";
+// SIMPLIFIED HEADERS - only what's absolutely needed
+$headers = "From: website@snowtech.agency\r\n";
 $headers .= "Reply-To: $email\r\n";
-$headers .= "MIME-Version: 1.0\r\n";
-$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-$headers .= "X-Mailer: PHP/" . phpversion();
+$headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
-// Create HTML message
-$htmlMessage = '
-<!DOCTYPE html>
-<html>
-<head>
-    <title>New Project Inquiry</title>
-</head>
-<body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
-    <div style="max-width: 600px; margin: 0 auto;">
-        <div style="background: #0066FF; color: white; padding: 20px; text-align: center;">
-            <h1>New Project Inquiry</h1>
-        </div>
-        <div style="padding: 20px;">
-            <p><strong>Name:</strong> ' . htmlspecialchars($name) . '</p>
-            <p><strong>Email:</strong> ' . htmlspecialchars($email) . '</p>
-            <p><strong>Project Type:</strong> ' . htmlspecialchars($projectType) . '</p>
-            <p><strong>Timeline:</strong> ' . htmlspecialchars($timeline) . '</p>
-            <p><strong>Message:</strong><br>' . nl2br(htmlspecialchars($message)) . '</p>
-        </div>
-        <div style="font-size: 12px; color: #777; margin-top: 30px; border-top: 1px solid #eee; padding-top: 10px;">
-            Sent from Snow Tech Agency website contact form
-        </div>
-    </div>
-</body>
-</html>';
+// Create PLAIN TEXT email (no HTML) to avoid MIME issues
+$emailMessage = "New Project Inquiry\n";
+$emailMessage .= "====================\n\n";
+$emailMessage .= "Name: $name\n";
+$emailMessage .= "Email: $email\n";
+$emailMessage .= "Project Type: $projectType\n";
+$emailMessage .= "Timeline: $timeline\n\n";
+$emailMessage .= "Message:\n$message\n\n";
+$emailMessage .= "====================\n";
+$emailMessage .= "Sent from Snow Tech Agency website contact form";
 
 // Log attempt
 file_put_contents($log_file, "$timestamp - Attempting to send email via mail() function\n", FILE_APPEND);
 
 // Send email using PHP's mail() function
-$mailSent = mail($to, $subject, $htmlMessage, $headers);
+$mailSent = mail($to, $subject, $emailMessage, $headers);
 
 // Return result
 if ($mailSent) {
