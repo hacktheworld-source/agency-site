@@ -1,0 +1,35 @@
+[
+  {
+    "id": "ai-website-development-trends-2025",
+    "title": "No Roadmap? Your SaaS is Already Dead",
+    "slug": "ai-website-development-trends-2025",
+    "description": "Why a clear product roadmap is non-negotiable for SaaS success, and how the lack of strategic planning leads to product failure before you even launch.",
+    "date": "2025-03-15",
+    "author": "Ryan Snow",
+    "tags": ["SaaS", "Product Strategy", "Roadmapping"],
+    "image": "/assets/images/blog/ai-trends-2025.jpg",
+    "featured": true
+  },
+  {
+    "id": "choosing-right-tech-stack-startup",
+    "title": "Dev Too Slow? Cut Scope, Not Corners",
+    "slug": "choosing-right-tech-stack-startup",
+    "description": "How to accelerate your development timeline without sacrificing quality, security, or team morale—a practical guide to intelligent scope management.",
+    "date": "2025-03-01",
+    "author": "Ryan Snow",
+    "tags": ["Development", "Project Management", "Startups"],
+    "image": "/assets/images/blog/tech-stack-choices.jpg",
+    "featured": false
+  },
+  {
+    "id": "website-performance-optimization",
+    "title": "Most SaaS Fail Because Founders Guess What Users Want",
+    "slug": "website-performance-optimization",
+    "description": "Why market fit remains elusive for most SaaS products, and how systematic validation can replace guesswork with confidence in your product decisions.",
+    "date": "2025-02-15",
+    "author": "Ryan Snow",
+    "tags": ["Product-Market Fit", "SaaS", "User Research"],
+    "image": "/assets/images/blog/website-performance.jpg",
+    "featured": false
+  }
+] 

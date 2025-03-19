@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Blog | Snow Tech Agency</title>
+    <meta name="title" content="Blog | Snow Tech Agency">
+    <meta name="description" content="Insights and expertise on AI development, web apps, and technology trends from the Snow Tech Agency team.">
+    <meta name="keywords" content="AI development, web app development, technology trends, tech blog">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://snowtech.agency/blog/">
+    <meta property="og:title" content="Blog | Snow Tech Agency">
+    <meta property="og:description" content="Insights and expertise on AI development, web apps, and technology trends from the Snow Tech Agency team.">
+    <meta property="og:image" content="https://snowtech.agency/assets/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://snowtech.agency/blog/">
+    <meta property="twitter:title" content="Blog | Snow Tech Agency">
+    <meta property="twitter:description" content="Insights and expertise on AI development, web apps, and technology trends from the Snow Tech Agency team.">
+    <meta property="twitter:image" content="https://snowtech.agency/assets/images/og-image.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://snowtech.agency/blog/">
+    
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Snow Tech Agency Blog",
+      "description": "Insights and expertise on AI development, web apps, and technology trends from the Snow Tech Agency team.",
+      "url": "https://snowtech.agency/blog/",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Snow Tech Agency",
+        "url": "https://snowtech.agency",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://snowtech.agency/assets/logo.png"
+        }
+      }
+    }
+    </script>
+    
+    <!-- Early theme detection to prevent flash -->
+    <script>
+        // Apply theme immediately to prevent flash during page transitions
+        (function() {
+            try {
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme) {
+                    document.documentElement.setAttribute('data-theme', savedTheme);
+                } else {
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+                }
+            } catch (e) {
+                console.error('Theme initialization error:', e);
+            }
+        })();
+    </script>
+    
+    <!-- Add these before other resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Optimize font loading -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+    
+    <!-- CSS files -->
+    <link rel="stylesheet" href="/css/main.css">
+    
+    <style>
+        /* Blog-specific styles */
+        .blog-hero {
+            position: relative;
+            min-height: 50vh;
+            padding: 180px 0 80px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            background: var(--section-bg);
+            overflow: hidden;
+        }
+        
+        .tag-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 2rem 0;
+            justify-content: center;
+        }
+        
+        .tag-filter {
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .tag-filter:hover, .tag-filter.active {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .blog-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-light);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .blog-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .blog-card:hover .blog-image img {
+            transform: scale(1.05);
+        }
+        
+        .blog-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .blog-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(var(--primary-rgb), 0.1);
+            color: var(--primary);
+            font-size: 0.75rem;
+            border-radius: 50px;
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .blog-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+        
+        .blog-date {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+        
+        .blog-excerpt {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.9375rem;
+            line-height: 1.6;
+        }
+        
+        .blog-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: auto;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-tag-pill {
+            font-size: 0.75rem;
+            background: var(--section-bg);
+            color: var(--text-secondary);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+        }
+        
+        .blog-read-more {
+            margin-top: auto;
+            font-weight: 500;
+            color: var(--primary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .blog-read-more:hover {
+            color: var(--accent);
+        }
+        
+        .no-posts-message {
+            text-align: center;
+            padding: 3rem 0;
+            color: var(--text-secondary);
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tag-filters {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 1rem;
+                flex-wrap: nowrap;
+                width: 100%;
+            }
+            
+            .tag-filter {
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <nav class="main-nav">
+                <a href="/" class="logo">
+                    Snow Tech
+                </a>
+                <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/services.html">Services</a></li>
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/blog/" class="active">Blog</a></li>
+                    <li><a href="/contact.html" class="cta-button">Contact Us</a></li>
+                </ul>
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="blog-hero grain-overlay">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="/">Home</a> / <span>Blog</span>
+                </div>
+                <h1 class="gradient-text">Insights & Expertise</h1>
+                <p class="lead">Practical tips and industry insights on AI, web development, and tech trends</p>
+            </div>
+            <div class="hero-background">
+                <div class="gradient-orb primary"></div>
+                <div class="gradient-orb secondary"></div>
+            </div>
+        </section>
+
+        <section class="blog-listing">
+            <div class="container">
+                <div class="tag-filters" id="tagFilters">
+                    <button class="tag-filter active" data-tag="all">All Posts</button>
+                    <!-- Tags will be dynamically populated -->
+                </div>
+                
+                <div class="blog-grid" id="blogGrid">
+                    <!-- Blog posts will be dynamically populated -->
+                </div>
+                
+                <div class="no-posts-message" id="noPostsMessage">
+                    <h3>No posts match your filter criteria</h3>
+                    <p>Try selecting a different tag or view all posts</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Have a Tech Project in Mind?</h2>
+                <p>Get Timeline & Price → 10-Min Chat</p>
+                <a href="/contact.html" class="button primary">Start Now →</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2024 Snow Tech Agency. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/theme.js"></script>
+    <script>
+        // Blog functionality
+        document.addEventListener('DOMContentLoaded', async function() {
+            // Fetch blog posts from JSON file
+            try {
+                const response = await fetch('/blog/blog.json');
+                const posts = await response.json();
+                
+                // Process posts
+                renderPosts(posts);
+                populateTagFilters(posts);
+                setupFilterEvents();
+                
+            } catch (error) {
+                console.error('Error loading blog posts:', error);
+                document.getElementById('blogGrid').innerHTML = '<p class="error-message">Error loading blog posts. Please try again later.</p>';
+            }
+        });
+        
+        // Render blog posts
+        function renderPosts(posts) {
+            const blogGrid = document.getElementById('blogGrid');
+            blogGrid.innerHTML = '';
+            
+            // Sort posts by date (newest first)
+            posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            posts.forEach(post => {
+                const formattedDate = formatDate(post.date);
+                const postTags = post.tags.join(',');
+                
+                const postHTML = `
+                    <article class="blog-card" data-tags="${postTags}">
+                        <div class="blog-image">
+                            <img src="${post.image || '/assets/images/blog/default.jpg'}" alt="${post.title}">
+                        </div>
+                        <div class="blog-content">
+                            <span class="blog-tag">${post.tags[0] || 'General'}</span>
+                            <h3>${post.title}</h3>
+                            <span class="blog-date">${formattedDate}</span>
+                            <p class="blog-excerpt">${post.description}</p>
+                            <div class="blog-tags">
+                                ${post.tags.map(tag => `<span class="blog-tag-pill">${tag}</span>`).join('')}
+                            </div>
+                            <a href="/blog/posts/${post.slug}.html" class="blog-read-more">Read Article →</a>
+                        </div>
+                    </article>
+                `;
+                
+                blogGrid.innerHTML += postHTML;
+            });
+        }
+        
+        // Populate tag filters
+        function populateTagFilters(posts) {
+            const tagFilters = document.getElementById('tagFilters');
+            const allTags = new Set();
+            
+            // Collect all unique tags
+            posts.forEach(post => {
+                post.tags.forEach(tag => allTags.add(tag));
+            });
+            
+            // Add tag filters
+            allTags.forEach(tag => {
+                const tagButton = document.createElement('button');
+                tagButton.className = 'tag-filter';
+                tagButton.setAttribute('data-tag', tag);
+                tagButton.textContent = tag;
+                tagFilters.appendChild(tagButton);
+            });
+        }
+        
+        // Setup filter events
+        function setupFilterEvents() {
+            const tagFilters = document.querySelectorAll('.tag-filter');
+            const blogCards = document.querySelectorAll('.blog-card');
+            const noPostsMessage = document.getElementById('noPostsMessage');
+            
+            tagFilters.forEach(filter => {
+                filter.addEventListener('click', () => {
+                    // Update active state
+                    tagFilters.forEach(f => f.classList.remove('active'));
+                    filter.classList.add('active');
+                    
+                    const selectedTag = filter.getAttribute('data-tag');
+                    let visibleCount = 0;
+                    
+                    // Filter posts
+                    blogCards.forEach(card => {
+                        if (selectedTag === 'all' || card.getAttribute('data-tags').includes(selectedTag)) {
+                            card.style.display = 'flex';
+                            visibleCount++;
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                    
+                    // Show/hide no posts message
+                    noPostsMessage.style.display = visibleCount === 0 ? 'block' : 'none';
+                });
+            });
+        }
+        
+        // Format date helper
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('en-US', options);
+        }
+    </script>
+</body>
+</html> 
