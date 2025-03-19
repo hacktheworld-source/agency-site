@@ -14,8 +14,8 @@
                 if (savedTheme) {
                     document.documentElement.setAttribute('data-theme', savedTheme);
                 } else {
-                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                    document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+                    // Default to dark mode instead of checking system preference
+                    document.documentElement.setAttribute('data-theme', 'dark');
                 }
             } catch (e) {
                 // Fallback if localStorage is unavailable

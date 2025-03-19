@@ -21,10 +21,9 @@ function initTheme() {
         document.documentElement.setAttribute('data-theme', savedTheme);
         console.log('Using saved theme preference:', savedTheme);
     } else {
-        // No saved preference, check system preference
-        const systemTheme = systemThemeMedia.matches ? 'dark' : 'light';
-        document.documentElement.setAttribute('data-theme', systemTheme);
-        console.log('Using system theme preference:', systemTheme);
+        // No saved preference, default to dark mode
+        document.documentElement.setAttribute('data-theme', 'dark');
+        console.log('Using default dark theme');
     }
     
     // Update toggle button to match current theme
@@ -33,13 +32,9 @@ function initTheme() {
 
 // Single listener for system preference changes
 systemThemeMedia.addEventListener('change', e => {
-    if (!localStorage.getItem('theme')) {
-        // Only update if user hasn't set a preference
-        const newTheme = e.matches ? 'dark' : 'light';
-        document.documentElement.setAttribute('data-theme', newTheme);
-        console.log('System theme changed to:', newTheme);
-        updateToggleButton();
-    }
+    // We don't update based on system changes anymore
+    // Only user preferences will change the theme
+    console.log('System theme changed, but maintaining current theme');
 });
 
 // Toggle between light and dark themes
