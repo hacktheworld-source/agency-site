@@ -774,3 +774,66 @@
         display: none; /* Hide on mobile */
     }
 } 
+
+.video-showcase {
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+    background: var(--section-bg);
+    text-align: center;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    margin: 30px auto 0;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    background: #000;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+}
+
+.ascii-art {
+    margin: 1rem 0;
+    border-radius: 8px;
+    padding: 0.5rem;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.ascii-art pre {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.5rem;
+    line-height: 1.2;
+    white-space: pre;
+    color: var(--text-primary);
+    margin: 0;
+    transform: scale(0.8);
+    transform-origin: left top;
+    font-weight: bold;
+}
+
+@media (min-width: 768px) {
+    .ascii-art pre {
+        font-size: 0.65rem;
+        transform: scale(0.9);
+    }
+}
+
+@media (min-width: 1200px) {
+    .ascii-art pre {
+        font-size: 0.75rem;
+        transform: scale(1);
+    }
+}
