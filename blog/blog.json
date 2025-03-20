@@ -1,5 +1,27 @@
 [
   {
+    "id": "ai-integration-complexity",
+    "title": "Your AI Integration Will Fail: Here's Why",
+    "slug": "ai-integration-complexity",
+    "description": "Why most AI integrations fail in production, and how to build resilient systems that can handle the unique challenges of artificial intelligence at scale.",
+    "date": "2025-05-01",
+    "author": "Ryan Snow",
+    "tags": ["AI", "Integration", "Systems Architecture"],
+    "image": "/assets/images/blog/ai-integration.jpg",
+    "featured": true
+  },
+  {
+    "id": "software-project-cost-overruns",
+    "title": "Your Software Budget Died in Week 3",
+    "slug": "software-project-cost-overruns",
+    "description": "Why tech projects consistently blow past budgets, and how to implement a proactive cost management system that keeps your project financially viable.",
+    "date": "2025-04-01",
+    "author": "Ryan Snow",
+    "tags": ["Cost Management", "Budget Planning", "Project Management"],
+    "image": "/assets/images/blog/cost-overruns.jpg",
+    "featured": false
+  },
+  {
     "id": "ai-website-development-trends-2025",
     "title": "No Roadmap? Your SaaS is Already Dead",
     "slug": "ai-website-development-trends-2025",
@@ -8,7 +30,7 @@
     "author": "Ryan Snow",
     "tags": ["SaaS", "Product Strategy", "Roadmapping"],
     "image": "/assets/images/blog/ai-trends-2025.jpg",
-    "featured": true
+    "featured": false
   },
   {
     "id": "choosing-right-tech-stack-startup",
