@@ -1,14 +1,25 @@
 [
   {
+    "id": "saas-security-vulnerabilities",
+    "title": "Your SaaS is a Security Sieve: Common Holes You Don't Know About",
+    "slug": "saas-security-vulnerabilities",
+    "description": "Why most SaaS applications are unknowingly exposing sensitive data, and how to implement proper security measures before a breach occurs.",
+    "date": "2025-07-01",
+    "author": "Ryan Snow",
+    "tags": ["Security", "SaaS", "Data Protection"],
+    "image": "/assets/images/blog/security-holes.jpg",
+    "featured": true
+  },
+  {
     "id": "scalability-challenges-growth",
     "title": "Success Will Kill Your App: The Scaling Timebomb No One Talks About",
     "slug": "scalability-challenges-growth",
     "description": "Why most applications collapse under their own success, and how to build systems that thrive rather than fail when user growth finally happens.",
-    "date": "2025-03-22",
+    "date": "2025-06-15",
     "author": "Ryan Snow",
     "tags": ["Scalability", "System Architecture", "Performance"],
     "image": "/assets/images/blog/scalability-challenges.jpg",
-    "featured": true
+    "featured": false
   },
   {
     "id": "tech-stack-selection-scaling",
